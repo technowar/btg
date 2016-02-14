@@ -27,7 +27,13 @@
   },
   "homepage": "https://github.com/elizar/btg#readme",
   "devDependencies": {
-    "cucumber": "^0.9.4"
+    "cucumber": "^0.9.4",
+    "html5": "^1.0.5",
+    "mocha": "^2.4.5",
+    "should": "^8.2.2",
+    "sinon": "^1.17.3",
+    "supertest": "^1.2.0",
+    "zombie": "^4.2.1"
   },
   "dependencies": {
     "koa": "^1.1.2"
