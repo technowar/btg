@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "buanga this app",
   "main": "server.js",
+  "engines": {
+    "node": "5.5.0",
+    "npm": "3.5.3"
+  },
   "scripts": {
     "test": "make test"
   },
@@ -24,5 +28,8 @@
   "homepage": "https://github.com/elizar/btg#readme",
   "devDependencies": {
     "cucumber": "^0.9.4"
+  },
+  "dependencies": {
+    "koa": "^1.1.2"
   }
 }
