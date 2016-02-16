@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 3000;
 
 // route
 app.use(route.get('/', home));
+app.use(route.get('/question', question));
 
 // Static file server
 app.use(function *(){
@@ -30,8 +31,13 @@ app.use(function *(){
   yield send(this, this.path, opt);
 })
 
+//  TODO: create handler folder
 function* home() {
   this.body = yield render('home', {title: 'Home'});
+}
+
+function* question() {
+  this.body = yield render('question', {title: 'Question'});
 }
 
 app.listen(PORT);
