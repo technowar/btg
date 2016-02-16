@@ -5,6 +5,5 @@ Feature: Home Page
 
 Scenario: User visits the home page
 		Given I visit "/" page
-		Then I should see some "This is just an awesome"
-		And some "page"
-
+		Then I should see some "Buanga This Guy"
+		And some "Copyright © 2016, Buanga This Guy. All rights reserved."
