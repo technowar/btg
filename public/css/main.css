@@ -1,4 +1,78 @@
 body {
-	font:  normal 17px 'Roboto', sans-serif;
+	font:  normal 15px 'Roboto', sans-serif;
 	line-height: 1.5em;
+	background-color: #ffffff;
+	-webkit-font-smoothing: antialiased;
+	color: #555;
+}
+
+a, a:active {
+	color: #f7777f;
+}
+
+a:hover {
+	color: #f1111f;
+}
+
+a.btg-title {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 18px;
+	text-decoration: none;
+	letter-spacing: 1px;
+}
+
+a.btg-title:hover {
+}
+
+ul.btg-nav {
+	list-style-type: none;
+	margin: 0;
+}
+
+ul.btg-nav li {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+ul.btg-nav li a {
+	font-size: 13px;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	border-bottom: 1px dotted;
+}
+
+nav.nav {
+	padding: 20px 0;
+}
+
+.btg-hero {
+	padding: 30px 0;
+}
+
+main {
+	padding: 50px 0;
+}
+
+header {
+	border-bottom: 1px solid #efefef;
+}
+
+footer {
+	border-top: 1px solid #efefef;
+	padding: 20px 0;
+	font-size: 13px;
+	color: #aaa;
+}
+
+.button, .button-primary, .button-success {
+}
+
+
+.right {
+	float: right;
+}
+.center {
+	text-align: center;
 }
