@@ -30,6 +30,7 @@
     "cucumber": "^0.9.4",
     "html5": "^1.0.5",
     "mocha": "^2.4.5",
+    "nodemon": "^1.8.1",
     "should": "^8.2.2",
     "sinon": "^1.17.3",
     "supertest": "^1.2.0",
