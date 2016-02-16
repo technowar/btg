@@ -1,26 +1,24 @@
-var koa = require('koa');
-var app = koa();
+'use strict';
 
-
-// x-response-time
-app.use(function *(next){
-  var start = new Date;
-  yield next;
-  var ms = new Date - start;
-  this.set('X-Response-Time', ms + 'ms');
+const render = require('./app/lib/render');
+const route  = require('koa-route');
+const parse  = require('co-body');
+const koala  = require('koala');
+const app    = koala({
+  fileServer: {
+    root: './public'
+  }
 });
 
-// logger
-app.use(function *(next){
-  var start = new Date;
-  yield next;
-  var ms = new Date - start;
-  console.log('%s %s - %s', this.method, this.url, ms, 'ms');
-});
+// 12 factor
+const PORT = process.env.PORT || 3000;
 
-// response
-app.use(function *(){
-  this.body = 'Shit! and stuff';
-});
+// route
+app.use(route.get('/', home));
 
-app.listen(3000);
+function* home() {
+  this.body = yield render('home', {title: 'Home'});
+}
+
+app.listen(PORT);
+console.log('Server running on port', PORT);

@@ -5,6 +5,6 @@ Feature: Home Page
 
 Scenario: User visits the home page
 		Given I visit "/" page
-		Then I should see some "Shit!"
-		And some "stuff"
+		Then I should see some "This is just an awesome"
+		And some "page"
 
