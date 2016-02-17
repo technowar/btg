@@ -8,7 +8,9 @@
     "npm": "3.5.3"
   },
   "scripts": {
-    "test": "make test"
+    "postinstall": "./scripts/copy-git-hooks.sh",
+    "test": "make test",
+    "eslint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,7 @@
   "homepage": "https://github.com/elizar/btg#readme",
   "devDependencies": {
     "cucumber": "^0.9.4",
+    "eslint": "^2.1.0",
     "html5": "^1.0.5",
     "mocha": "^2.4.5",
     "nodemon": "^1.8.1",
