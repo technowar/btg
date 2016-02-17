@@ -20,9 +20,9 @@ To get started right away, just install the following:
 Just do `brew update && brew install docker docker-compose
 docker-machine`.
 
-Once you're done. You need to provision a boot2docker virtual machine.
+Once you're done, you need to provision a boot2docker virtual machine.
 
-To privision a new machine just run `docker-machine create dev`, then `eval
+To privision a new machine just run `docker-machine create -d virtualbox dev`, then `eval
 $(docker-machine env dev)`.
 
 Check if everything's fine by running `docker ps` or `docker images`. If
@@ -30,7 +30,7 @@ there's no error, then you're good to go.
 
 **Provisioning container with docker-compose**
 
-Once you're docker env is all set up, just go ahead and run
+Once your docker env is all set up, just go ahead and run
 `docker-compose up` then grab some coffee because fucking NPM install
 takes forever!
 
