@@ -31,7 +31,6 @@ app.use(function *(){
   yield send(this, this.path, opt);
 })
 
-//  TODO: create handler folder
 function* home() {
   this.body = yield render('home', {title: 'Home'});
 }
