@@ -28,7 +28,7 @@ $(docker-machine env dev)`.
 Check if everything's fine by running `docker ps` or `docker images`. If
 there's no error, then you're good to go.
 
-#### Provisioning container with docker-compose
+**Provisioning container with docker-compose**
 
 Once you're docker env is all setup, just go ahead and run
 `docker-compose up` then grab some coffee because fucking NPM install
