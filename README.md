@@ -22,7 +22,7 @@ docker-machine`.
 
 Once you're done. You need to provision a boot2docker virtual machine.
 
-To privision a new machine just do `docker-machine create dev`, then `eval
+To privision a new machine just run `docker-machine create dev`, then `eval
 $(docker-machine env dev)`.
 
 Check if everything's fine by running `docker ps` or `docker images`. If
@@ -30,7 +30,7 @@ there's no error, then you're good to go.
 
 **Provisioning container with docker-compose**
 
-Once you're docker env is all setup, just go ahead and run
+Once you're docker env is all set up, just go ahead and run
 `docker-compose up` then grab some coffee because fucking NPM install
 takes forever!
 
@@ -43,5 +43,5 @@ takes forever!
 	- Run `make server`
 	- Write you're code ( watchers will... yup! )
 
-
-More DOCS soon...
+---
+More **docs** soon...
