@@ -11,4 +11,4 @@ EXPOSE 3000
 WORKDIR /app
 COPY . /app
 
-CMD ["/deps/node_modules/.bin/pm2", "start", "--watch", "server.js"]
+CMD /deps/node_modules/.bin/pm2 start --watch server.js && /deps/node_modules/.bin/pm2 logs
