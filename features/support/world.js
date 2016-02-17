@@ -12,7 +12,7 @@ var World = function () {
   });
 
   this.page = function (path) {
-    return "http://localhost:" + 3000 + path;
+    return "http://localhost:" + process.env.PORT + path;
   }
 
   this.visit = function (path, callback) {
