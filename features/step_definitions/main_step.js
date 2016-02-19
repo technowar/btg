@@ -11,7 +11,7 @@ module.exports = function () {
     this.visit(text, callback);
   });
 
-  this.Then(/^it should have a title "(\/)"$/, function (text, callback) {
+	this.Then(/^it should have a title "([^"]*)"$/, function (text, callback) {
     this.browser.text('title').should.match(new RegExp(text));
     callback();
   });

@@ -3,6 +3,6 @@ Feature: Registration Page
   I want to be able to access BTG's registration page
   So that I can register myself.
 
-Scenario: User wants to register
+Scenario: User visits the sign up page
   Given I visit "/register" page
-  Then it should have a title "Sign Up"
+  Then it should have a title "Register"
