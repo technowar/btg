@@ -3,8 +3,7 @@ Feature: Question Page
   I want to be able to browse BTG's question page
   So that I can ask shity questions.
 
-Scenario: User want to ask question
+Scenario: User visits the question page
   Given I visit "/question" page
   Then it should have a title "Question"
-  And some "I can post my awesome question"
-
+  And should see some "Ang pangutana nimo nga nag tangag og dako'ng ganti"
