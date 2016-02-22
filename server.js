@@ -11,9 +11,11 @@ const app    = koala();
 const PORT = process.env.PORT || 3000;
 
 // route
-app.use(route.get('/', home));
-app.use(route.get('/question', question));
-app.use(route.get('/register', register));
+const root     = require('./app/routes/root');
+const question = require('./app/routes/question');
+
+app.use(route.get('/', root.getHome));
+app.use(route.get('/question', question.getQuestion));
 
 // Static file server
 app.use(function * (){
@@ -31,18 +33,6 @@ app.use(function * (){
 
   yield send(this, this.path, opt);
 })
-
-function* home () {
-  this.body = yield render('home', {title: 'Home'});
-}
-
-function* question () {
-  this.body = yield render('question', {title: 'Question'});
-}
-
-function* register () {
-  this.body = yield render('register', {title: 'Register'});
-}
 
 app.listen(PORT);
 
