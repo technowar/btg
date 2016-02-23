@@ -6,9 +6,9 @@
 
 To get started right away, just install the following:
 
-1. Docker
-2. Docker Compose
-3. Docker Machine
+1. [Docker](https://docs.docker.com/engine/installation/)
+2. [Docker Compose](https://docs.docker.com/compose/install/)
+3. [Docker Machine](https://docs.docker.com/machine/install-machine/)
 
 #### Installing on Mac
 
@@ -17,8 +17,8 @@ To get started right away, just install the following:
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - And a fucking Mac Computer
 
-Just do `brew update && brew install docker docker-compose
-docker-machine`.
+Install 'em all
+>`$ brew update && brew install docker docker-compose docker-machine
 
 Once you're done, you need to provision a boot2docker virtual machine.
 
@@ -39,11 +39,12 @@ takes forever!
 
 ## Development
 
+Run `docker-compose up`
+
 - **TDD**
 	- Run `make tdd`
 	- Write your code ( watchers will auto run the tests for you )
 - **Server**
-	- Run `docker-compose up`
 	- Run `make server`
 	- Write your code ( watchers will... yup! )
 
