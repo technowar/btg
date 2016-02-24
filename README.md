@@ -54,9 +54,9 @@ Once your docker env is all set up, then you're pretty much ready to get your ha
     
     > **This command should:**
     
-    > 1. Create a random password exported as `BTG_PASS` for `redis` and `mongodb`
-    > 2. Set up mongodb && redis store _ENV VARS_ for  _URL_
-    > 3. Provision the containers
+    > - Create a random password exported as `BTG_PASS` for `redis` and `mongodb`
+    > - Set up mongodb && redis store _ENV VARS_ for  _URL_
+    > - Provision the containers
     
     &nbsp;
     
