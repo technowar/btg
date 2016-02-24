@@ -17,7 +17,7 @@ app.use(router.routes());
 app.keys = ['key', 'wadiwasi'];
 app.use(session({
   store: redis({
-    url: `${process.env.REDIS_URL}` || 'redis://localhost'
+    url: `${process.env.REDIS_URL || 'redis://localhost'}`
   })
 }));
 
