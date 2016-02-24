@@ -10,7 +10,7 @@ server:
 tdd:
 	./scripts/watch.sh . docker exec btg_web_1 make docker-test
 
-sandwitch: compose
+sandwich: compose
 
 compose:
 	export BTG_PASS=$(date | md5)
