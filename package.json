@@ -10,7 +10,7 @@
   "scripts": {
     "postinstall": "./scripts/copy-git-hooks.sh",
     "test": "make test",
-    "eslint": "eslint"
+    "eslint": "./node_modules/.bin/eslint"
   },
   "repository": {
     "type": "git",
@@ -30,7 +30,8 @@
   "homepage": "https://github.com/elizar/btg#readme",
   "devDependencies": {
     "cucumber": "^0.9.4",
-    "eslint": "^2.1.0",
+    "eslint": "^2.2.0",
+    "eslint-config-airbnb": "^6.0.2",
     "html5": "^1.0.5",
     "mocha": "^2.4.5",
     "should": "^8.2.2",
