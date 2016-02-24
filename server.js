@@ -10,13 +10,8 @@ const app    = koala();
 // 12 factor
 const PORT = process.env.PORT || 3000;
 
-// route
-const root     = require('./app/routes/root');
-const question = require('./app/routes/question');
-
-router // set routes
-  .get('/', root.getHome)
-  .get('/question', question.getQuestion);
+// routes
+require('./app/routes/home.js')(router);
 
 app.use(router.routes());
 
