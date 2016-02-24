@@ -1,6 +1,8 @@
 const Zombie = require('zombie');
 const HTML5 = require('html5');
 
+// Should
+require('should');
 // App
 require('../../server');
 
