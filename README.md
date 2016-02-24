@@ -18,15 +18,15 @@ To get started right away, just install the following:
 - And a fucking Mac Computer
 
 Install 'em all
->`$ brew update && brew install docker docker-compose docker-machine
+`$ brew update && brew install docker docker-compose docker-machine`
 
 Once you're done, you need to provision a boot2docker virtual machine.
 
 To privision a new machine with `2048 MB` of RAM
->`$ docker-machine create -d virtualbox --virtualbox-memory "2048" dev`
+`$ docker-machine create -d virtualbox --virtualbox-memory "2048" dev`
 
 Run `eval` to make the machine active
->`$ eval $(docker-machine env dev)`
+`$ eval $(docker-machine env dev)`
 
 Check if everything's fine by running `docker ps` or `docker images`. If
 there's no error, then you're good to go.
