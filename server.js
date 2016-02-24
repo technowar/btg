@@ -1,6 +1,8 @@
 'use strict';
 
 const router = require('koa-router')();
+const session = require('koa-generic-session');
+const redis = require('koa-redis');
 const send = require('koa-send');
 const koala = require('koala');
 const app = koala();
@@ -12,6 +14,12 @@ const PORT = process.env.PORT || 3000;
 require('./app/routes/home.js')(router);
 
 app.use(router.routes());
+app.keys = ['key', 'wadiwasi'];
+app.use(session({
+  store: redis({
+    url: `${process.env.REDIS_URL}` || 'redis://localhost'
+  })
+}));
 
 // Static file server
 app.use(function * fileserver() {
