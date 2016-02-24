@@ -15,7 +15,7 @@ To get started right away, just install the following:
 **Requirements**
 
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads) for docker-machine driver.
-- The super duper extra mega ultra [AWESOME PACKAGE MANAGER](http://brew.sh/) for mac.
+- The super duper extra mega ultra awesome package manager for mac, -=[ [Brew](http://brew.sh/) ]=- !
 
 &nbsp;
 
@@ -34,8 +34,8 @@ To get started right away, just install the following:
     `$ eval $(docker-machine env dev)`
 
 
-> Check if everything's fine by running `$ docker ps` or `$ docker images`. If
-there's no error, then you're good to go.
+    > Check if everything's fine by running `$ docker ps` or `$ docker images`. If
+    there's no error, then you're good to go.
 
 &nbsp;
 
@@ -43,22 +43,30 @@ there's no error, then you're good to go.
 
 Once your docker env is all set up, then you're pretty much ready to get your hands all dirty. So let's get crackin`!
 
-First off, run the following:
+1. **First off, run the following:**
 
-**`$ make sandwich`**
->
-> `$ make sandwich` is just a wrapper of `$ make compose` which is also a wrapper to `$ docker-compose up` but with added sugar to make our lives a tad bit easier.
->
+    **`$ make sandwich`**
+    >
+    > `$ make sandwich` is just a wrapper of `$ make compose` which is also a wrapper to `$ docker-compose up` but with added sugar to make our lives a tad bit easier.
+    >
+    
+    &nbsp;  
+    
+    > **This command should:**
+    
+    > 1. Create a random password exported as `BTG_PASS` for `redis` and `mongodb`
+    > 2. Set up mongodb && redis store _ENV VARS_ for  _URL_
+    > 3. Provision the containers
+    
+    &nbsp;
+    
+2. **Next should be:**
 
-&nbsp;
-
-**The command above will do the following:**
-
-1. Creates a random password exported as `BTG_PASS` for `redis` and `mongodb`
-2. Sets up mongodb && redis store _ENV VARS_ for  _URL_
-3. Provision the motherfucking containers
-
-&nbsp;
+    **`$ make setup`**
+    >
+    > This will copy some commit-hook scripts to `.git/hooks` folder.
+    
+    &nbsp;
 
 ## Development
 

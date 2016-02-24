@@ -1,8 +1,8 @@
-var Zombie  = require('zombie');
+var Zombie = require('zombie');
 var request = require('supertest');
-var should  = require('should');
-var HTML5   = require('html5');
-var server  = require('../../server');
+var should = require('should');
+var HTML5 = require('html5');
+var server = require('../../server');
 
 var World = function () {
   this.browser = new Zombie({
@@ -12,8 +12,8 @@ var World = function () {
   });
 
   this.page = function (path) {
-    return "http://localhost:" + process.env.PORT + path;
-  }
+    return 'http://localhost:' + process.env.PORT + path;
+  };
 
   this.visit = function (path, callback) {
     this
@@ -24,7 +24,7 @@ var World = function () {
         callback(err, browser, status);
       }
     );
-  }
+  };
 
 };
 

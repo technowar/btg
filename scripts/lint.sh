@@ -12,5 +12,6 @@ fi
 if [ -n "$files_to_lint" ]; then
   echo
   echo "${UNDERLINE}${BOLD}ESLINT${NORMAL}"
-  npm run eslint -- --quiet $files_to_lint
+  echo
+  [ -x ./node_modules/.bin/eslint ] && ./node_modules/.bin/eslint -- $files_to_lint
 fi
