@@ -1,7 +1,7 @@
 'use strict';
 
 const render = require('./app/lib/render');
-const route  = require('koa-route');
+const router = require('koa-router')();
 const send   = require('koa-send');
 const parse  = require('co-body');
 const koala  = require('koala');
@@ -14,8 +14,11 @@ const PORT = process.env.PORT || 3000;
 const root     = require('./app/routes/root');
 const question = require('./app/routes/question');
 
-app.use(route.get('/', root.getHome));
-app.use(route.get('/question', question.getQuestion));
+router // set routes
+  .get('/', root.getHome)
+  .get('/question', question.getQuestion);
+
+app.use(router.routes());
 
 // Static file server
 app.use(function * (){
