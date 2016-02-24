@@ -13,7 +13,6 @@ tdd:
 sandwich: compose
 
 compose:
-	export BTG_PASS=$(date | md5)
-	docker-compose up
+	./scripts/compose.sh
 
 .PHONY: test
