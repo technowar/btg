@@ -3,5 +3,8 @@ node_js:
   - "5"
 test:
   - make test
+services:
+  - redis-server
+  - mongodb
 notifications:
     slack: postgz:8aCYqAO7JD0hQxXl98UnD0sp
