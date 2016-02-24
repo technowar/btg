@@ -1,18 +1,18 @@
-var Zombie = require('zombie');
-var request = require('supertest');
-var should = require('should');
-var HTML5 = require('html5');
-var server = require('../../server');
+const Zombie = require('zombie');
+const HTML5 = require('html5');
 
-var World = function () {
+// App
+require('../../server');
+
+const World = function () {
   this.browser = new Zombie({
-    runScripts : true,
-    debug      : false,
-    htmlParser : HTML5
+    runScripts: true,
+    debug: false,
+    htmlParser: HTML5
   });
 
   this.page = function (path) {
-    return 'http://localhost:' + process.env.PORT + path;
+    return `http://localhost:${process.env.PORT}${path}`;
   };
 
   this.visit = function (path, callback) {
@@ -20,12 +20,11 @@ var World = function () {
     .browser
     .visit(
       this.page(path),
-      function (err, browser, status) {
+      (err, browser, status) => {
         callback(err, browser, status);
       }
     );
   };
-
 };
 
 module.exports = function () {
