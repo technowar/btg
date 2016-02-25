@@ -45,18 +45,13 @@ Once your docker env is all set up, then you're pretty much ready to get your ha
 
 1. **First off, run the following:**
 
-    **`$ make sandwich`**
-    >
-    > `$ make sandwich` is just a wrapper of `$ make compose` which is also a wrapper to `$ docker-compose up` but with added sugar to make our lives a tad bit easier.
-    >
+    **`$ docker-compose up`**
     
-    &nbsp;  
+    > This will run the services specified in the `docker-compose.yml` file.
+    > If everything's going smoothly, you should see something like this
+    > from inside your terminal:
     
-    > **This command should:**
-    
-    > - Create a random password exported as `BTG_PASS` for `redis` and `mongodb`
-    > - Set up mongodb && redis store _ENV VARS_ for  _URL_
-    > - Provision the containers
+    ![dcomup](http://cl.ly/2H1B3C2D2p2u/download/Screen%20Recording%202016-02-26%20at%2001.29%20AM.gif)
     
     &nbsp;
     
