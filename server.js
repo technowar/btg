@@ -1,19 +1,30 @@
 'use strict';
 
-const router = require('koa-router')();
+const mongoose = require('mongoose');
 const session = require('koa-generic-session');
+const router = require('koa-router')();
 const redis = require('koa-redis');
-const send = require('koa-send');
 const koala = require('koala');
+const send = require('koa-send');
 const app = koala();
 
-// 12 factor
+// MONGODB
+const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost';
+const MONGODB_DB = `${MONGODB_URL}/btg`;
+
+// SCHEMAS/MODELS
+require('./app/models/')(mongoose);
+
+const db = mongoose.connect(MONGODB_DB);
+app.context.models = db.model;
+
 const PORT = process.env.PORT || 3000;
 
-// routes
+// ROUTES BITCHES!
 require('./app/routes/home.js')(router);
-
 app.use(router.routes());
+
+// SESSION STORE
 app.keys = ['key', 'wadiwasi'];
 app.use(session({
   store: redis({
@@ -21,7 +32,7 @@ app.use(session({
   })
 }));
 
-// Static file server
+// STATIC FILES
 app.use(function * fileserver() {
   const opt = {
     root: `${__dirname}/public`,
