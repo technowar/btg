@@ -22,10 +22,10 @@ app.context.model = db.model;
 require('./app/models/')(mongoose);
 
 // ROUTES BITCHES!
-require('./app/routes/home.js')(router);
+require('./app/routes/')(router);
 app.use(router.routes());
 
-// SESSION STORE
+// SESSION STORE MIDDLEWARE
 app.keys = ['key', 'wadiwasi'];
 app.use(session({
   store: redis({
@@ -33,7 +33,7 @@ app.use(session({
   })
 }));
 
-// STATIC FILES
+// STATIC FILES MIDDLEWARE
 app.use(function * fileserver() {
   const opt = {
     root: `${__dirname}/public`,
