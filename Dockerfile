@@ -1,4 +1,4 @@
-from node:5.5.0
+from node:argon
 
 RUN mkdir /deps
 ADD ./package.json /deps
