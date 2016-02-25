@@ -8,15 +8,16 @@ const koala = require('koala');
 const send = require('koa-send');
 const app = koala();
 
-// MONGODB
-const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost';
-const MONGODB_DB = `${MONGODB_URL}/btg`;
+// MONGODB URL
+const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost/btg';
 
 // SCHEMAS/MODELS
 require('./app/models/')(mongoose);
 
-const db = mongoose.connect(MONGODB_DB);
-app.context.models = db.model;
+// MONGO INIT CONNECTION
+const db = mongoose.connect(MONGODB_URL);
+// ADD MODEL TO APP CONTEXT
+app.context.model = db.model;
 
 const PORT = process.env.PORT || 3000;
 

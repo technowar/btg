@@ -10,13 +10,15 @@ services:
     ports:
       - "80:3000"
     environment:
-      - MONGODB_URL=mongodb://admin:${BTG_PASS}@mongodb:27017
-      - REDIS_URL=redis://:${BTG_PASS}@redis:6379
+      - MONGODB_URL=mongodb://btg:${BTG_PASS}@mongodb/btg
+      - REDIS_URL=redis://:${BTG_PASS}@redis
   redis:
     image: tutum/redis
     environment:
       - REDIS_PASS=${BTG_PASS}
   mongodb:
-    image: tutum/mongodb
+    image: tutum/mongodb:3.2
     environment:
       - MONGODB_PASS=${BTG_PASS}
+      - MONGODB_DATABASE=btg
+      - MONGODB_USER=btg

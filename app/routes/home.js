@@ -3,8 +3,8 @@ const render = require('../lib/render');
 
 module.exports = (router) => {
   router.get('/', function* () {
-    // Get the user model
-    const User = this.models('User');
+    // Get the user model from app ctx
+    const User = this.model('User');
 
     /**
      * Bootstrap application if there are no current
