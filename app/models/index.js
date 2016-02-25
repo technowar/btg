@@ -7,9 +7,13 @@
  *
  *   ./schema/user.js
  *   -----------------------
- *     module.export = {
- *       email: String,
- *       password: String
+ *     module.export = (Schema) => {
+ *       const userSchema = new Schema({
+ *         email: String,
+ *         password: String
+ *       });
+ *
+ *       return userSchema;
  *     };
  *   -----------------------
  *
