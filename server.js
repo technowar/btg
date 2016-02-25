@@ -1,5 +1,12 @@
 'use strict';
 
+/**
+ * MODULE DEPENDENCIES
+ * like a motherfucker (^________-)
+ *
+ * Check out the OCD stuff below
+ * If you know what I mean...
+ */
 const mongoose = require('mongoose');
 const session = require('koa-generic-session');
 const router = require('koa-router')();
@@ -8,18 +15,11 @@ const koala = require('koala');
 const send = require('koa-send');
 const app = koala();
 
-// MONGODB URL
-const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost/btg';
-
-// SCHEMAS/MODELS
-require('./app/models/')(mongoose);
-
-// MONGO INIT CONNECTION
-const db = mongoose.connect(MONGODB_URL);
-// ADD MODEL TO APP CONTEXT
+// MONGODB
+const MU = process.env.MONGODB_URL || 'mongodb://localhost/btg';
+const db = mongoose.connect(MU);
 app.context.model = db.model;
-
-const PORT = process.env.PORT || 3000;
+require('./app/models/')(mongoose);
 
 // ROUTES BITCHES!
 require('./app/routes/home.js')(router);
@@ -50,5 +50,7 @@ app.use(function * fileserver() {
   yield send(this, this.path, opt);
 });
 
+// SERVER
+const PORT = process.env.PORT || 3000;
 app.listen(PORT);
 console.log('Server running on port', PORT);
