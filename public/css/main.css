@@ -1,7 +1,7 @@
 body {
 	font:  normal 15px 'Roboto', sans-serif;
 	line-height: 1.5em;
-	background-color: #ffffff;
+	background-color: #fff7dd;
 	-webkit-font-smoothing: antialiased;
 	color: #555;
 }
@@ -37,10 +37,10 @@ ul.btg-nav li {
 
 ul.btg-nav li a {
 	font-size: 13px;
+	font-weight: bold;
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	border-bottom: 1px dotted;
 }
 
 nav.nav {
@@ -56,14 +56,18 @@ main {
 }
 
 header {
-	border-bottom: 1px solid #efefef;
+	padding-bottom: 5px;
 }
 
 footer {
-	border-top: 1px solid #efefef;
-	padding: 20px 0;
 	font-size: 13px;
-	color: #aaa;
+	color: #777;
+}
+
+footer .container .row {
+	padding: 40px 0 20px 0;
+	text-align: center;
+	border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 .button, .button-primary, .button-success {
