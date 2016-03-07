@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const koaBody = require('koa-body')();
 
 module.exports = (router) => {
   // First read all .js files excluding this file `index.js`
@@ -18,6 +19,6 @@ module.exports = (router) => {
     const url = route.path;
     const handler = route.handler;
 
-    router[method](url, handler);
+    router[method](url, koaBody, handler);
   });
 };
