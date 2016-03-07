@@ -46,29 +46,31 @@ Once your docker env is all set up, then you're pretty much ready to get your ha
 1. **First off, run the following:**
 
     **`$ docker-compose up`**
-    
+
     > This will run the services specified in the `docker-compose.yml` file.
     > If everything's going smoothly, you should see something like this
     > from inside your terminal:
-    
+
     ![dcomup](http://cl.ly/2H1B3C2D2p2u/download/Screen%20Recording%202016-02-26%20at%2001.29%20AM.gif)
-    
+
     &nbsp;
-    
+
 2. **Next should be:**
 
     **`$ make setup`**
     >
     > This will copy some commit-hook scripts to `.git/hooks` folder.
-    
+
     &nbsp;
 
 ## Development
 
 - **Stack - Please read their corresponding documentation.**
-    - [Swig](http://paularmstrong.github.io/swig/) - Templating Engine
-    - [Koa](http://koajs.com) - Main Framework
-    - _Will add more later..._
+	- [Swig](http://paularmstrong.github.io/swig/) - Templating Engine
+	- [Koa](http://koajs.com) - Main Framework
+	- [Koa Router](https://github.com/alexmingoia/koa-router) - Framework Router
+	- [Mongoose](https://github.com/Automattic/mongoose) - ORM
+	- _Will add more later..._
 - **Auto run tests**
 	- Run `$ make tdd`
 	- Write your code ( watchers will auto run the tests for you )
@@ -84,8 +86,7 @@ Once your docker env is all set up, then you're pretty much ready to get your ha
 >
 > more later...
 
-**Can someone please do something about the following?**
+## Others
 
-- Code Convention
-- Stack docs
-- What else?
+* [Coding Convention](https://github.com/wadiwasi/btg/wiki/Coding-Convention)
+* [Documentation](https://github.com/wadiwasi/btg/wiki/Documentation)

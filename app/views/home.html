@@ -5,5 +5,8 @@
 {% endblock %}
 
 {% block content %}
-	<p>Ipsum optio ut quasi provident qui aut maxime perferendis quam quisquam? Alias beatae ab ullam assumenda cumque non. Consequatur corrupti eligendi exercitationem recusandae fuga vitae velit. Nulla quos quae quos?</p>
+	<form action="/question" method="POST">
+		<textarea class="u-full-width" name="question" placeholder="Imong pangutana" required></textarea>
+		<input class="button" type="submit" value="Ipangutana">
+	</form>
 {% endblock %}
