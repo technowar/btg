@@ -1,9 +1,24 @@
 body {
 	font:  normal 15px 'Roboto', sans-serif;
 	line-height: 1.5em;
-	background-color: #fff7dd;
+	background-color: #efefef;
 	-webkit-font-smoothing: antialiased;
 	color: #555;
+}
+
+input:not(.button),
+textarea {
+	padding: 1em;
+	border-radius: 0;
+	font-family: Inconsolata, Inconsolata-g, Monaco, monospace;
+}
+
+input:active,
+input:focus,
+textarea:active,
+textarea:focus {
+	box-shadow: none;
+	border: 1px solid #aaa;
 }
 
 a, a:active {
@@ -11,7 +26,7 @@ a, a:active {
 }
 
 a:hover {
-	color: #f1111f;
+	color: #f6666f;
 }
 
 a.btg-title {
@@ -33,6 +48,11 @@ ul.btg-nav {
 ul.btg-nav li {
 	display: inline-block;
 	margin-right: 1em;
+}
+ul.btg-nav li:not(:last-child):after {
+	content: "|";
+	padding-left: 15px;
+	color: #ccc;
 }
 
 ul.btg-nav li a {
@@ -56,7 +76,9 @@ main {
 }
 
 header {
-	padding-bottom: 5px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #dddddd;
+	background-color: #FFF;
 }
 
 footer {
@@ -71,6 +93,16 @@ footer .container .row {
 }
 
 .button, .button-primary, .button-success {
+	border-radius: 0 !important;
+}
+.button-btg {
+	color: #fff !important;
+	background-color: #f7777f !important;
+	border: 1px solid #f7777f !important;
+}
+.button-btg:hover {
+	background-color: #f6666f !important;
+	border: 1px solid #f6666f !important;
 }
 
 
