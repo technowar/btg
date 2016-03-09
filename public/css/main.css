@@ -10,6 +10,7 @@ input:not(.button),
 textarea {
 	padding: 1em;
 	border-radius: 0;
+	resize: vertical;
 	font-family: Inconsolata, Inconsolata-g, Monaco, monospace;
 }
 

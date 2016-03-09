@@ -9,9 +9,10 @@ module.exports = {
   // Handler
   // Note: please use es6 object-shorthand
   *handler() {
+    const body = yield this.request.urlencoded();
     const Question = mongoose.model('Question');
     const newQuestion = new Question({
-      content: this.request.body.question
+      content: body.question
     });
 
     newQuestion.save((error) => {
