@@ -68,6 +68,7 @@ Once your docker env is all set up, then you're pretty much ready to get your ha
 - **Stack - Please read their corresponding documentation.**
 	- [Swig](http://paularmstrong.github.io/swig/) - Templating Engine
 	- [Koa](http://koajs.com) - Main Framework
+	- [Koala](https://github.com/koajs/koala) - HTTP Utility
 	- [Koa Router](https://github.com/alexmingoia/koa-router) - Framework Router
 	- [Mongoose](https://github.com/Automattic/mongoose) - ORM
 	- _Will add more later..._
