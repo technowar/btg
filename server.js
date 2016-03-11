@@ -15,6 +15,48 @@ const koala = require('koala');
 const send = require('koa-send');
 const app = koala();
 
+let FB_KEY = process.env.FB_KEY;
+let FB_SECRET = process.env.FB_SECRET;
+
+// FOR DEVELOPMENT
+// we use .fbkey
+if (!process.env.NODE_ENV) {
+  const fs = require('fs');
+  if (!fs.existsSync('.fbkey')) {
+    throw new Error(`
+      Can't find .fbkey, please create one that contains
+      fb api keys and secret separated in new line.
+
+      i.e:
+       keykeykeykeykey
+       secretsecretsecret
+      `);
+  }
+
+  const fb = fs.readFileSync('.fbkey').toString().split('\n');
+  FB_KEY = fb[0];
+  FB_SECRET = fb[1];
+}
+
+// PUREST
+const Purest = require('purest');
+app.context.facebook = new Purest({ provider: 'facebook', promise: true });
+
+// GRANT
+const mount = require('koa-mount');
+const grant = new require('grant-koa')({
+  server: {
+    protocol: 'http',
+    host: 'localhost:3000'
+  },
+  facebook: {
+    key: FB_KEY,
+    secret: FB_SECRET,
+    callback: '/fb/callback'
+  }
+});
+app.use(mount(grant));
+
 // MONGODB
 const MU = process.env.MONGODB_URL || 'mongodb://localhost/btg';
 const db = mongoose.connect(MU);
@@ -26,7 +68,7 @@ require('./app/routes/')(router);
 app.use(router.routes());
 
 // SESSION STORE MIDDLEWARE
-app.keys = ['key', 'wadiwasi'];
+app.keys = ['3cced13707cba542effe9f3796bb9c531f770ebe'];
 app.use(session({
   store: redis({
     url: `${process.env.REDIS_URL || 'redis://localhost'}`
