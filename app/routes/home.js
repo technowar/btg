@@ -1,14 +1,24 @@
 'use strict';
 
 const render = require('../lib/render');
+const routes = [];
 
-module.exports = {
+// Home
+routes.push({
   method: 'get',
   path: '/',
-
-  // Handler
-  // Note: please use es6 object-shorthand
   *handler() {
     this.body = yield render('home', { title: 'Buanga This Guy!' });
   }
-};
+});
+
+// Beep
+routes.push({
+  method: 'get',
+  path: '/beep',
+  *handler() {
+    this.body = 'beeep boop!';
+  }
+});
+
+module.exports = routes;

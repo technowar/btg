@@ -13,11 +13,24 @@ module.exports = (router) => {
       return;
     }
 
-    const route = require(path.join(__dirname, file));
-    const method = route.method.toLowerCase();
-    const url = route.path;
-    const handler = route.handler;
+    // Require each file
+    let routes = require(path.join(__dirname, file));
 
-    router[method](url, handler);
+    // Sometimes route only export a single
+    // object instead of an array so we have
+    // to make sure we handle it properly by
+    // encapsulating the object in an array.
+    if (!Array.isArray(routes)) {
+      routes = [routes];
+    }
+
+    routes.forEach((route) => {
+      const method = route.method.toLowerCase();
+      const url = route.path;
+      const handler = route.handler;
+
+      // Add route
+      router[method](url, handler);
+    });
   });
 };
