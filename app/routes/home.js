@@ -8,7 +8,10 @@ routes.push({
   method: 'get',
   path: '/',
   *handler() {
-    this.body = yield render('home', { title: 'Buanga This Guy!', user: this.session.user });
+    this.body = yield render('home', { title: 'Buanga This Guy!',
+                                       user: this.session.user,
+                                       csrf: this.csrf
+                                     });
   }
 });
 
