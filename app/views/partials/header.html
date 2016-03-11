@@ -8,6 +8,9 @@
                 <ul class="btg-nav right">
                     <li><a href="#">about</a></li>
                     <li><a href="#">store</a></li>
+                    {% if user %}
+                    <li><a href="/logout">log out</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
