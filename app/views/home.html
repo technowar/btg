@@ -5,12 +5,13 @@
 {% endblock %}
 
 {% block content %}
-	{% if user %}
-	<form action="/question" method="POST">
-		<textarea class="u-full-width" name="question" placeholder="Imong pangutana" required></textarea>
-		<input class="button button-btg" type="submit" value="Pangutana {{user.name}}">
-	</form>
-	{% else %}
-		<a href="/connect/facebook" class="button button-btg">Login First</a>
-	{% endif %}
+  {% if user %}
+  <form action="/question" method="POST">
+    <input type="hidden" name="_csrf" value="{{csrf}}">
+    <textarea class="u-full-width" name="question" placeholder="Imong pangutana" required></textarea>
+    <input class="button button-btg" type="submit" value="Pangutana {{user.name}}">
+  </form>
+  {% else %}
+    <a href="/connect/facebook" class="button button-btg">Login First</a>
+  {% endif %}
 {% endblock %}

@@ -10,6 +10,20 @@ module.exports = {
   // Note: please use es6 object-shorthand
   *handler() {
     const body = yield this.request.urlencoded();
+
+    // Mag protection, mag trust
+    // quality CSRF condom este token
+    try {
+      this.assertCSRF(body);
+    } catch (err) {
+      this.status = 403;
+      this.body = {
+        message: 'This CSRF token is invalid!'
+      };
+
+      return;
+    }
+
     const Question = mongoose.model('Question');
     const newQuestion = new Question({
       content: body.question
