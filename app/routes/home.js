@@ -8,16 +8,18 @@ routes.push({
   method: 'get',
   path: '/',
   *handler() {
-    this.body = yield render('home', { title: 'Buanga This Guy!' });
+    this.body = yield render('home', { title: 'Buanga This Guy!', user: this.session.user });
   }
 });
 
 // Beep
 routes.push({
   method: 'get',
-  path: '/beep',
+  path: '/count',
   *handler() {
-    this.body = 'beeep boop!';
+    this.session.count = this.session.count || 0;
+    this.session.count++;
+    this.body = `Count: ${this.session.count}`;
   }
 });
 

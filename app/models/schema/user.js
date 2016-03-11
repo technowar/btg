@@ -2,17 +2,26 @@
 
 module.exports = (Schema) => {
   const userSchema = new Schema({
-    email: {
+    _id: {
       type: String,
-      required: true,
       unique: true,
       index: true
     },
-    password: {
+
+    name: {
       type: String,
-      required: true,
-      match: /.{, 6}/
-    }
+      required: true
+    },
+
+    email: {
+      type: String,
+      default: ''
+    },
+
+    createdAt: {
+      type: Date,
+      default: Date.now
+    },
   });
 
   // TODO: add pre and post hooks
