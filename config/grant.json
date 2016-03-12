@@ -1,0 +1,35 @@
+{
+  "dev": {
+    "server": {
+      "protocol": "http",
+      "host": "localhost:3000"
+    },
+    "facebook": {
+      "key": "",
+      "secret": "",
+      "callback": "/fb/callback"
+    }
+  },
+  "docker": {
+    "server": {
+      "protocol": "http",
+      "host": "192.168.99.100"
+    },
+    "facebook": {
+      "key": "",
+      "secret": "",
+      "callback": "/fb/callback"
+    }
+  },
+  "prod": {
+    "server": {
+      "protocol": "https",
+      "host": "buangathisguy.com"
+    },
+    "facebook": {
+      "key": "",
+      "secret": "",
+      "callback": "/fb/callback"
+    }
+  }
+}
