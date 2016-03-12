@@ -10,6 +10,17 @@
       "callback": "/fb/callback"
     }
   },
+  "travis": {
+    "server": {
+      "protocol": "http",
+      "host": "localhost:3000"
+    },
+    "facebook": {
+      "key": "",
+      "secret": "",
+      "callback": "/fb/callback"
+    }
+  },
   "docker": {
     "server": {
       "protocol": "http",
