@@ -4,6 +4,11 @@
     "maxage": 0,
     "gzip": false
   },
+  "travis": {
+    "root": "public",
+    "maxage": 0,
+    "gzip": false
+  },
   "prod": {
     "root": "public",
     "maxage": 604800000,
