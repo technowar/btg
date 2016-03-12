@@ -5,6 +5,16 @@
 {% endblock %}
 
 {% block content %}
+	{% if flash.error %}
+	<div class="center">
+		<p>{{flash.error}}</p>
+	</div>
+	{% endif %}
+	<div class="center">
+		<h3>I'm Back Bitches!</h3>
+		<p>Sa bisaya pa, namalik ang mga <em>Iro'ng Buang!</em></p>
+		<hr/>
+	</div>
   {% if user %}
   <form action="/question" method="POST">
     <input type="hidden" name="_csrf" value="{{csrf}}">
@@ -13,12 +23,9 @@
   </form>
   {% else %}
 	<div class="center">
-		<h1>I'm Back Bitches!</h1>
-		<h4>Sa bisaya pa. Namalik ang mga <em>Iro'ng Buang!</em></h4>
-		<br/>
-		<p>
-				<a href="/connect/facebook" class="button button-btg">LOG IN SA FACEBOOK</a>
-		</p>
+			<p>
+					<a href="/connect/facebook" class="button button-btg">LOG IN SA FACEBOOK</a>
+			</p>
 	</div>
   {% endif %}
 {% endblock %}

@@ -28,16 +28,16 @@ routes.push({
 
     // If not then let's save user to db
     if (!result) {
-      const user = new User({
-        _id: response.id,
-        name: response.name
+      let user = new User({
+        _id: responseBody.id,
+        name: responseBody.name
       });
 
       try {
         yield user.save();
       } catch (e) {
-        this.throw(400, e.message);
-        return;
+        this.flash('error', e.message);
+        user = undefined;
       }
 
       result = user;
