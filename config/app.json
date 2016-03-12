@@ -1,0 +1,24 @@
+{
+  "dev": {
+    "port": 3000,
+    "keys": [
+      "beep boop",
+      "wadiwasi"
+    ]
+  },
+  "docker": {
+    "port": 3000
+  },
+  "travis": {
+    "port": 3000,
+    "keys": [
+      "3cced13707cba542effe9f3796bb9c531f770ebe"
+    ]
+  },
+  "prod": {
+    "port": 3000,
+    "keys": [
+      "3cced13707cba542effe9f3796bb9c531f770ebe"
+    ]
+  }
+}
