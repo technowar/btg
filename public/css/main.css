@@ -1,7 +1,7 @@
 body {
 	font:  normal 15px 'Roboto', sans-serif;
 	line-height: 1.5em;
-	background-color: #efefef;
+	background-color: #eafffb;
 	-webkit-font-smoothing: antialiased;
 	color: #555;
 }
@@ -36,9 +36,11 @@ a.btg-title {
 	font-size: 18px;
 	text-decoration: none;
 	letter-spacing: 1px;
+	color: rgba(0, 0, 0, 0.5);
 }
 
 a.btg-title:hover {
+	color: rgba(0, 0, 0, 0.99);
 }
 
 ul.btg-nav {
@@ -53,7 +55,7 @@ ul.btg-nav li {
 ul.btg-nav li:not(:last-child):after {
 	content: "|";
 	padding-left: 15px;
-	color: #ccc;
+	color: rgba(0, 0, 0, 0.2);
 }
 
 ul.btg-nav li a {
@@ -62,6 +64,10 @@ ul.btg-nav li a {
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: 1px;
+	color: rgba(0, 0, 0, 0.5);
+}
+ul.btg-nav li a:hover {
+	color: rgba(0, 0, 0, 0.99);
 }
 
 nav.nav {
@@ -78,8 +84,7 @@ main {
 
 header {
 	padding-bottom: 10px;
-	border-bottom: 1px solid #dddddd;
-	background-color: #FFF;
+	background-color: #eafffb;
 }
 
 footer {
