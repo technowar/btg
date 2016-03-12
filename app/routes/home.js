@@ -8,10 +8,17 @@ routes.push({
   method: 'get',
   path: '/',
   *handler() {
-    this.body = yield render('home', { title: 'Buanga This Guy!',
-                                       user: this.session.user,
-                                       csrf: this.csrf
-                                     });
+    const data = {
+      title: 'Buanga This Guy!',
+      user: this.session.user,
+      flash: {
+        error: this.flash('error'),
+        notice: this.flash('notice')
+      },
+      csrf: this.csrf
+    };
+
+    this.body = yield render('home', data);
   }
 });
 

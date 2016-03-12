@@ -6,6 +6,7 @@
 const mongoose = require('mongoose');
 const session = require('koa-generic-session');
 const router = require('koa-router')();
+const flash = require('koa-connect-flash');
 const redis = require('koa-redis');
 const koala = require('koala');
 const send = require('koa-send');
@@ -65,11 +66,6 @@ const models = require('./app/models/');
 models(mongoConnection);
 app.context.model = mongoConnection.model;
 
-// ROUTES
-const routes = require('./app/routes/');
-routes(router);
-app.use(router.routes());
-
 // SESSION STORE
 app.keys = appConfig.keys;
 app.use(session({
@@ -77,6 +73,17 @@ app.use(session({
     url: `${process.env.REDIS_URL || 'redis://localhost'}`
   })
 }));
+
+// FLASH
+app.use(flash());
+
+// 404 MIDDLEWARE
+app.use(require('./app/lib/notfound')('notfound'));
+
+// ROUTES
+const routes = require('./app/routes/');
+routes(router);
+app.use(router.routes());
 
 // STATIC FILE SERVER
 app.use(function* () {
