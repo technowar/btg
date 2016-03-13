@@ -8,15 +8,18 @@
                 <ul class="btg-nav right">
                     <li><a href="/about">about us</a></li>
                     {% if user %}
-                    {% if user.role === 'admin' %}
-                    <li><a href="/admin">admin</a></li>
-                    {% endif %}
-                    <li><a href="/logout">log out</a></li>
                     <li>
                         <a href="/profile">
                             <img src="{{user.picture}}" class="profile-pic" />
-                            <span class="profile"> {{user.name.split(' ')[0]}} </span>
+                            <i class="caret"> &nbsp; </i>
                         </a>
+                        <ul>
+                            <li><a href="/profile"><i class="icon-head"> </i> {{user.name}}</a></li>
+                            {% if user.role === 'admin' %}
+                            <li><a href="/admin"><i class="icon-grid"> </i> admin</a></li>
+                            {% endif %}
+                            <li><a href="/logout"><i class="icon-unlock"> </i> log out</a></li>
+                        </ul>
                     </li>
                     {% endif %}
                 </ul>
