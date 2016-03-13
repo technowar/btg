@@ -3,7 +3,7 @@
 const fs = require('fs');
 const path = require('path');
 
-module.exports = (router) => {
+module.exports = (filters, router) => {
   // First read all .js files excluding this file `index.js`
   const files = fs.readdirSync(path.join(__dirname, './'));
 
@@ -29,8 +29,21 @@ module.exports = (router) => {
       const url = route.path;
       const handler = route.handler;
 
-      // Add route
-      router[method](url, handler);
+      let handlers = [];
+
+      // If this route has filters then we include them
+      if (route.filters) {
+        handlers = route.filters.map((flt) => filters[flt]);
+      }
+
+      // Handler should be last of the middleware stack
+      handlers.push(handler);
+
+      // This is the power of koa-router and middleware based fw
+      // it enables us to add multiple handlers
+      //
+      // And look at them spread operators bitches!!!
+      router[method].call(router, url, ...handlers);
     });
   });
 };
