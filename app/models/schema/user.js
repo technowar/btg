@@ -23,6 +23,11 @@ module.exports = (Schema) => {
       default: ''
     },
 
+    role: {
+      type: String,
+      default: null
+    },
+
     createdAt: {
       type: Date,
       default: Date.now
