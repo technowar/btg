@@ -11,6 +11,7 @@ textarea {
 	padding: 1em;
 	border-radius: 0;
 	resize: vertical;
+	font-size: 0.9em;
 	font-family: Inconsolata, Inconsolata-g, Monaco, monospace;
 }
 
@@ -101,7 +102,7 @@ footer .container .row {
 }
 
 .button, .button-primary, .button-success {
-	border-radius: 0 !important;
+	/*border-radius: 0 !important;*/
 }
 .button-btg {
 	color: #fff !important;
@@ -112,14 +113,19 @@ footer .container .row {
 	background-color: #f6666f !important;
 	border: 1px solid #f6666f !important;
 }
+.button-btg.button-btg-round {
+	border-radius: 100px;
+}
 
 
 .right {
 	float: right;
 }
+
 .center {
 	text-align: center;
 }
+
 .profile-pic {
 	width: 32px;
 	height: 32px;
@@ -127,6 +133,7 @@ footer .container .row {
 	bottom: 7px;
 	border-radius: 100px;
 }
+
 .profile {
 	margin-left: 48px;
 }
