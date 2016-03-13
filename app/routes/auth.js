@@ -23,9 +23,15 @@ routes.push({
 
     const responseBody = response[1];
 
-    // Check if user exist
-    let result = yield User.findOne(responseBody.id).exec();
+    // Check for token validity
+    if (responseBody.error) {
+      this.flash('error', responseBody.error.message);
+      this.redirect('/');
+      return;
+    }
 
+    // Check if user exist
+    let result = yield User.findById(responseBody.id).exec();
     // If not then let's save user to db
     if (!result) {
       let user = new User({
