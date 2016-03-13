@@ -18,6 +18,11 @@ module.exports = (Schema) => {
       default: ''
     },
 
+    picture: {
+      type: String,
+      default: ''
+    },
+
     createdAt: {
       type: Date,
       default: Date.now

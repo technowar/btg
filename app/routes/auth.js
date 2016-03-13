@@ -17,12 +17,11 @@ routes.push({
      */
     const response = yield this.facebook
       .query()
-      .get('me')
+      .get('me?fields=id,name,email,picture')
       .auth(this.request.query.access_token)
       .request();
 
     const responseBody = response[1];
-
     // Check for token validity
     if (responseBody.error) {
       this.flash('error', responseBody.error.message);
@@ -36,7 +35,9 @@ routes.push({
     if (!result) {
       let user = new User({
         _id: responseBody.id,
-        name: responseBody.name
+        name: responseBody.name,
+        picture: responseBody.picture.data.url,
+        email: responseBody.email || ''
       });
 
       try {
