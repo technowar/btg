@@ -25,7 +25,7 @@ module.exports = (Schema) => {
 
     role: {
       type: String,
-      default: null
+      default: 'user'
     },
 
     createdAt: {

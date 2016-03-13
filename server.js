@@ -3,6 +3,7 @@
 // MODULE DEPENDENCIES
 const mongoose = require('mongoose');
 const session = require('koa-generic-session');
+const filters = require('./app/filters/');
 const models = require('./app/models/');
 const routes = require('./app/routes/');
 const router = require('koa-router')();
@@ -84,7 +85,7 @@ app.use(flash());
 app.use(require('./app/lib/notfound')('notfound'));
 
 // ROUTES
-routes(router);
+routes(filters(), router);
 app.use(router.routes());
 
 // STATIC FILE SERVER

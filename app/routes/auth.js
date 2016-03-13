@@ -6,47 +6,38 @@ const routes = [];
 routes.push({
   method: 'get',
   path: '/fb/callback',
+
   *handler() {
     const User = this.model('User');
 
-    /**
-     * This request returns an array
-     *
-     * headers = fbRequest[0]
-     * body    = fbRequest[1]
-     */
-    const response = yield this.facebook
+    // Get user details from facebook
+    const fbUser = (yield this.facebook
       .query()
       .get('me?fields=id,name,email,picture')
       .auth(this.request.query.access_token)
-      .request();
+      .request())[1]; // Returns an array. [0] -> headers, [1] -> body/content
 
-    const responseBody = response[1];
     // Check for token validity
-    if (responseBody.error) {
-      this.flash('error', responseBody.error.message);
+    if (fbUser.error) {
+      this.flash('error', fbUser.error.message);
       this.redirect('/');
       return;
     }
 
-    // Check if user exist
-    let result = yield User.findById(responseBody.id).exec();
-    // If not then let's save user to db
+    const totalUsers = yield User.count().exec();
+    let result = yield User.findById(fbUser.id).exec();
+    // create and save to db if user doesn't exist
     if (!result) {
       let user = new User({
-        _id: responseBody.id,
-        name: responseBody.name,
-        picture: responseBody.picture.data.url,
-        email: responseBody.email || ''
+        _id: fbUser.id,
+        name: fbUser.name,
+        picture: fbUser.picture.data.url,
+        email: fbUser.email || ''
       });
 
-      const userCount = yield User.count().exec();
-      if (!userCount) {
-        user = new User({
-          _id: responseBody.id,
-          name: responseBody.name,
-          role: 'Admin'
-        });
+      if (totalUsers === 0) {
+        user.role = 'admin';
+        this.flash('notice', 'As a first time user, I hereby grant you SUPERUSER access. Grats!!!');
       }
 
       try {
@@ -71,6 +62,8 @@ routes.push({
 routes.push({
   method: 'get',
   path: '/logout',
+  filters: ['userSession'], // Middleware awesomeness!!!
+
   *handler() {
     // Purge user session, then redirect
     delete this.session.user;
@@ -79,4 +72,3 @@ routes.push({
 });
 
 module.exports = routes;
-
