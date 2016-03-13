@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+  {% parent %}
+{% endblock %}
+
+{% block content %}
+	{% if flash.error %}
+	<div class="center">
+		<p>{{flash.error}}</p>
+	</div>
+	{% endif %}
+
+  <div class="center">
+    <h3>Manage Everything</h3>
+    <hr>
+    <br>
+  </div>
+  <ul>
+    <li>Users</li>
+    <li>Questions</li>
+  </ul>
+{% endblock %}

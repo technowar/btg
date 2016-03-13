@@ -40,6 +40,15 @@ routes.push({
         email: responseBody.email || ''
       });
 
+      const userCount = yield User.count().exec();
+      if (!userCount) {
+        user = new User({
+          _id: responseBody.id,
+          name: responseBody.name,
+          role: 'Admin'
+        });
+      }
+
       try {
         yield user.save();
       } catch (e) {

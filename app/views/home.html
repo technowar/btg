@@ -5,16 +5,20 @@
 {% endblock %}
 
 {% block content %}
-	{% if flash.error %}
-	<div class="center">
-		<p>{{flash.error}}</p>
-	</div>
-	{% endif %}
-	<div class="center">
-		<h3>I'm Back Bitches!</h3>
-		<h5>Sa bisaya pa, namalik ang mga <em>Iro'ng Buang!</em></h5>
-		<br>
-	</div>
+  {% if flash.error %}
+  <div class="center">
+    <p>{{flash.error}}</p>
+  </div>
+  {% endif %}
+  <div class="center">
+    <h3>I'm Back Bitches!</h3>
+    <h5>Sa bisaya pa, namalik ang mga <em>Iro'ng Buang!</em></h5>
+    {% if user && user.role==='Admin' %}
+    <h6>HEY FUCKERS! Since your the first one. Then that basically make you the SUPER ADMIN. Now click
+      [<a href="/admin">this link</a>] to go to the admin page</em></h6>
+    {% endif %}
+    <br>
+  </div>
   {% if user %}
   <form action="/question" method="POST">
     <input type="hidden" name="_csrf" value="{{csrf}}">
@@ -22,10 +26,10 @@
     <input class="button button-btg" type="submit" value="Pangutana {{user.name}}">
   </form>
   {% else %}
-	<div class="center">
-			<p>
-					<a href="/connect/facebook" class="button button-btg button-btg-round">LOG IN SA FACEBOOK</a>
-			</p>
-	</div>
+  <div class="center">
+    <p>
+      <a href="/connect/facebook" class="button button-btg button-btg-round">LOG IN SA FACEBOOK</a>
+    </p>
+  </div>
   {% endif %}
 {% endblock %}
