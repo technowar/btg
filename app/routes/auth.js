@@ -62,7 +62,7 @@ routes.push({
 routes.push({
   method: 'get',
   path: '/logout',
-  filters: ['auth'], // Middleware awesomeness!!!
+  filters: ['userSession'], // Middleware awesomeness!!!
 
   *handler() {
     // Purge user session, then redirect

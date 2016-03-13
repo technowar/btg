@@ -1,12 +1,19 @@
 'use strict';
 
+/**
+ * ADMIN ONLY FILTER
+ *
+ * This check if user has
+ * an `admin` role and redirects
+ * back to `/` if otherwise.
+ */
 module.exports = {
-  name: 'adminonly',
+  name: 'adminOnly',
 
   *handler(next) {
-    const user = this.session.user;
+    const user = this.session.user || { role: '' };
 
-    if (!user || !user.role.match(/admin/i)) {
+    if (!user.role || !user.role.match(/admin/i)) {
       this.redirect('/');
       return;
     }

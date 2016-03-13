@@ -22,7 +22,7 @@ module.exports = () => {
     }
 
     filters.forEach((filter) => {
-      const name = filter.name.toLowerCase();
+      const name = filter.name;
       const handler = filter.handler;
 
       // Add filter

@@ -16,7 +16,7 @@
  */
 
 module.exports = {
-  name: 'auth',
+  name: 'userSession',
 
   *handler(next) {
     // If session does not exist

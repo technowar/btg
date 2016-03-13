@@ -7,7 +7,7 @@ const routes = [];
 routes.push({
   method: 'get',
   path: '/admin',
-  filters: ['adminonly'],
+  filters: ['userSession', 'adminOnly'],
 
   *handler() {
     const data = {
@@ -28,7 +28,7 @@ routes.push({
 routes.push({
   method: 'get',
   path: '/admin/questions',
-  filters: ['adminonly'],
+  filters: ['userSession', 'adminOnly'],
 
   *handler() {
     const Question = this.model('Question');
