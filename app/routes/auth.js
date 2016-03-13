@@ -24,6 +24,7 @@ routes.push({
       return;
     }
 
+    const totalUsers = yield User.count().exec();
     let result = yield User.findById(fbUser.id).exec();
     // create and save to db if user doesn't exist
     if (!result) {
@@ -34,13 +35,9 @@ routes.push({
         email: fbUser.email || ''
       });
 
-      const userCount = yield User.count().exec();
-      if (!userCount) {
-        user = new User({
-          _id: responseBody.id,
-          name: responseBody.name,
-          role: 'Admin'
-        });
+      if (totalUsers === 0) {
+        user.role = 'admin';
+        this.flash('notice', 'As a first time user, I hereby grant you SUPERUSER access. Grats!!!');
       }
 
       try {

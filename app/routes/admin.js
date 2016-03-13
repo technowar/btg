@@ -7,6 +7,8 @@ const routes = [];
 routes.push({
   method: 'get',
   path: '/admin',
+  filters: ['adminonly'],
+
   *handler() {
     const data = {
       title: 'Admin - Buanga This Guy!',
@@ -18,12 +20,7 @@ routes.push({
       csrf: this.csrf
     };
 
-    // Todo: create middleware
-    if (this.session.user && this.session.user.role !== 'Admin') {
-      this.redirect('/');
-    } else {
-      this.body = yield render('admin', data);
-    }
+    this.body = yield render('admin', data);
   }
 });
 
@@ -31,6 +28,8 @@ routes.push({
 routes.push({
   method: 'get',
   path: '/admin/questions',
+  filters: ['adminonly'],
+
   *handler() {
     const Question = this.model('Question');
     const qList = yield Question.find().limit(10).exec();
@@ -46,12 +45,7 @@ routes.push({
       csrf: this.csrf
     };
 
-    // Todo: create middleware
-    if (this.session.user && this.session.user.role !== 'Admin') {
-      this.redirect('/');
-    } else {
-      this.body = yield render('questions', data);
-    }
+    this.body = yield render('questions', data);
   }
 });
 

@@ -10,13 +10,14 @@
     <p>{{flash.error}}</p>
   </div>
   {% endif %}
+  {% if flash.notice %}
+  <div class="center">
+    <p>{{flash.notice}}</p>
+  </div>
+  {% endif %}
   <div class="center">
     <h3>I'm Back Bitches!</h3>
     <h5>Sa bisaya pa, namalik ang mga <em>Iro'ng Buang!</em></h5>
-    {% if user && user.role==='Admin' %}
-    <h6>HEY FUCKERS! Since your the first one. Then that basically make you the SUPER ADMIN. Now click
-      [<a href="/admin">this link</a>] to go to the admin page</em></h6>
-    {% endif %}
     <br>
   </div>
   {% if user %}
