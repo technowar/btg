@@ -6,9 +6,12 @@
             </div>
             <div class="eight columns">
                 <ul class="btg-nav right">
-                    <li><a href="/about">KABAHIN</a></li>
+                    <li><a href="/about">about us</a></li>
                     {% if user %}
-                    <li><a href="/logout">Log Out</a></li>
+                    <li><a href="/logout">log out</a></li>
+                    <li>
+                        <img src="{{user.picture}}" class="profile-pic" />
+                    </li>
                     {% endif %}
                 </ul>
             </div>

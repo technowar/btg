@@ -1,7 +1,7 @@
 body {
-	font:  normal 15px 'Roboto', sans-serif;
+	font:  normal 15px Avenir, 'Roboto', sans-serif;
 	line-height: 1.5em;
-	background-color: #eafffb;
+	background-color: #f7fffd;
 	-webkit-font-smoothing: antialiased;
 	color: #555;
 }
@@ -83,8 +83,10 @@ main {
 }
 
 header {
+	padding-top: 5px;
 	padding-bottom: 10px;
-	background-color: #eafffb;
+	background-color: #F0FFFF;
+	border-bottom: 1px solid #eaeeeb;
 }
 
 footer {
@@ -117,4 +119,14 @@ footer .container .row {
 }
 .center {
 	text-align: center;
+}
+.profile-pic {
+	width: 32px;
+	height: 32px;
+	position: absolute;
+	bottom: 7px;
+	border-radius: 100px;
+}
+.profile {
+	margin-left: 48px;
 }
