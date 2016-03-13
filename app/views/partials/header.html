@@ -10,7 +10,10 @@
                     {% if user %}
                     <li><a href="/logout">log out</a></li>
                     <li>
-                        <img src="{{user.picture}}" class="profile-pic" />
+                        <a href="/profile">
+                            <img src="{{user.picture}}" class="profile-pic" />
+                            <span class="profile"> {{user.name.split(' ')[0]}} </span>
+                        </a>
                     </li>
                     {% endif %}
                 </ul>

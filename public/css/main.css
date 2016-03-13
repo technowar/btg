@@ -137,3 +137,7 @@ footer .container .row {
 .profile {
 	margin-left: 48px;
 }
+
+.round {
+	border-radius: 100px;
+}

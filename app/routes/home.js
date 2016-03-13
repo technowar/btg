@@ -22,4 +22,23 @@ routes.push({
   }
 });
 
+// Profiles Page
+routes.push({
+  method: 'get',
+  path: '/profile',
+  *handler() {
+    const data = {
+      title: 'Profile - Buanga This Guy!',
+      user: this.session.user,
+      flash: {
+        error: this.flash('error'),
+        notice: this.flash('notice')
+      },
+      csrf: this.csrf
+    };
+
+    this.body = yield render('profile', data);
+  }
+});
+
 module.exports = routes;
