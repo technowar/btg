@@ -22,15 +22,4 @@ routes.push({
   }
 });
 
-// Beep
-routes.push({
-  method: 'get',
-  path: '/count',
-  *handler() {
-    this.session.count = this.session.count || 0;
-    this.session.count++;
-    this.body = `Count: ${this.session.count}`;
-  }
-});
-
 module.exports = routes;
