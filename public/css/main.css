@@ -1,3 +1,5 @@
+@import 'icomoon.css';
+
 body {
 	font:  normal 15px Avenir, 'Roboto', sans-serif;
 	line-height: 1.5em;
@@ -56,7 +58,7 @@ ul.btg-nav li {
 ul.btg-nav li:not(:last-child):after {
 	content: "|";
 	padding-left: 15px;
-	color: rgba(0, 0, 0, 0.2);
+	color: rgba(0, 0, 0, 0.1);
 }
 
 ul.btg-nav li a {
