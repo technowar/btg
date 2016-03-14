@@ -1,4 +1,4 @@
-from node:argon
+from node:latest
 
 RUN mkdir /deps
 ADD ./package.json /deps
