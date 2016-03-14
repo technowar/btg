@@ -11,8 +11,7 @@ module.exports = () => {
     },
 
     answer: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Answer'
+      type: String,
     },
 
     user: {
