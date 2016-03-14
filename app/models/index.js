@@ -28,10 +28,11 @@ module.exports = (mongoose) => {
   const schemas = require('fs').readdirSync(path.join(__dirname, 'schema'));
 
   schemas.forEach((file) => {
-    // Only include javascript files
-    if (!path.extname(file).match(/js/)) {
+    // Only include javascript files and exclude `base.js`
+    if (file.match(/^base.js$/i) || !path.extname(file).match(/js/)) {
       return;
     }
+
     // Get the basename i.e `user`
     const baseName = file.split('.')[0];
 
@@ -40,8 +41,11 @@ module.exports = (mongoose) => {
     const schema = require(filePath);
 
     // Capitalize first letter of the basename i.e `user` => `User`
-    const modelName = baseName.charAt(0).toUpperCase() + baseName.slice(1);
+    const modelName = baseName
+      .charAt(0)
+      .toUpperCase() + baseName.slice(1);
+
     // Create mongoose model
-    mongoose.model(modelName, schema(mongoose.Schema));
+    mongoose.model(modelName, schema());
   });
 };

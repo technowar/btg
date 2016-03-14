@@ -1,7 +1,10 @@
 'use strict';
 
-module.exports = (Schema) => {
-  const userSchema = new Schema({
+const base = require('./base');
+const mongoose = require('mongoose');
+
+module.exports = () => {
+  const userSchema = new mongoose.Schema(Object.assign({}, base, {
     _id: {
       type: String,
       unique: true,
@@ -23,18 +26,21 @@ module.exports = (Schema) => {
       default: ''
     },
 
+    questions: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Question'
+    }],
+
+    answers: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Answer'
+    }],
+
     role: {
       type: String,
       default: 'user'
-    },
-
-    createdAt: {
-      type: Date,
-      default: Date.now
-    },
-  });
-
-  // TODO: add pre and post hooks
+    }
+  }));
 
   return userSchema;
 };
