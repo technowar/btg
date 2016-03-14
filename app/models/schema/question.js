@@ -11,13 +11,21 @@ module.exports = () => {
     },
 
     answer: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Answer'
+      type: String,
+      default: ''
     },
 
-    user: {
+    likes: [{
       type: String,
       ref: 'User'
+    }],
+
+    user: {
+      type: Object,
+      default: {
+        name: 'Anonymous',
+        picture: '/images/anonymous.png'
+      }
     }
   }));
 

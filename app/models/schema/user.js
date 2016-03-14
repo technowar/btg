@@ -31,9 +31,9 @@ module.exports = () => {
       ref: 'Question'
     }],
 
-    answers: [{
+    likes: [{
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Answer'
+      ref: 'Question'
     }],
 
     role: {
