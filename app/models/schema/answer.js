@@ -4,15 +4,15 @@ const base = require('./base');
 const mongoose = require('mongoose');
 
 module.exports = () => {
-  const questionSchema = new mongoose.Schema(Object.assign({}, base, {
+  const answerSchema = new mongoose.Schema(Object.assign({}, base, {
     text: {
       type: String,
       required: true
     },
 
-    answer: {
+    question: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Answer'
+      ref: 'Question'
     },
 
     user: {
@@ -21,5 +21,5 @@ module.exports = () => {
     }
   }));
 
-  return questionSchema;
+  return answerSchema;
 };
