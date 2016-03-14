@@ -26,11 +26,6 @@ module.exports = () => {
       default: ''
     },
 
-    questions: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Question'
-    }],
-
     likes: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Question'
