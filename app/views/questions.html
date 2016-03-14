@@ -15,7 +15,7 @@
   <hr>
   {% for question in questions %}
     {% if loop.first %}<ol>{% endif %}
-    <li><h4>{{question.content}}</h4></li>
+    <li><h4>{{question.text}}</h4></li>
     {% if loop.last %}</ol>{% endif %}
   {% endfor %}
 

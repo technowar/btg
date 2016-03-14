@@ -24,9 +24,11 @@ module.exports = {
       return;
     }
 
+    const User = this.session.user;
     const Question = mongoose.model('Question');
     const newQuestion = new Question({
-      content: body.question
+      text: body.question,
+      user: User
     });
 
     newQuestion.save((error) => {

@@ -32,7 +32,7 @@ routes.push({
 
   *handler() {
     const Question = this.model('Question');
-    const qList = yield Question.find().limit(10).exec();
+    const qList = yield Question.find().populate('user').limit(10).exec();
 
     const data = {
       title: 'Admin | Questions - Buanga This Guy!',
@@ -48,5 +48,6 @@ routes.push({
     this.body = yield render('questions', data);
   }
 });
+
 
 module.exports = routes;

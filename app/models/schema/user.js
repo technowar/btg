@@ -31,11 +31,6 @@ module.exports = () => {
       ref: 'Question'
     }],
 
-    answers: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Answer'
-    }],
-
     role: {
       type: String,
       default: 'user'
