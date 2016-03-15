@@ -10,13 +10,15 @@
     <p>{{flash.error}}</p>
   </div>
   {% endif %}
-
   <h3>Mga pangutana nga nag tanga'g ug dakong tubag.</h3>
   <hr>
-  {% for question in questions %}
-    {% if loop.first %}<ol>{% endif %}
-    <li><h4>{{question.text}}</h4></li>
-    {% if loop.last %}</ol>{% endif %}
-  {% endfor %}
-
+	{% if questions.length !== 0 %}
+    {% for question in questions %}
+      {% if loop.first %}<ul>{% endif %}
+        <a href="/question/{{question._id | safe}}"><li>{{question.text}}</li></a>
+      {% if loop.last %}</ul>{% endif %}
+    {% endfor %}
+	{% else %}
+    <h4>Nothing to display</h4>
+	{% endif %}
 {% endblock %}

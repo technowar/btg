@@ -81,12 +81,6 @@ Once your docker env is all set up, then you're pretty much ready to get your ha
 
 &nbsp;
 
-## Contributing
-
-> For now, there isn't any solid set of rules or conventions yet, maybe later will add it in here. For the time being, you can just write your code as you please and submit pull-request so others can review.
->
-> more later...
-
 ## Others
 
 * [Coding Convention](https://github.com/wadiwasi/btg/wiki/Coding-Convention)

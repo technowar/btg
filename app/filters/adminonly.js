@@ -7,6 +7,7 @@
  * an `admin` role and redirects
  * back to `/` if otherwise.
  */
+
 module.exports = {
   name: 'adminOnly',
 

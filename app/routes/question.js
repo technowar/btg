@@ -1,8 +1,8 @@
 'use strict';
 
-const mongoose = require('mongoose');
+const routes = [];
 
-module.exports = {
+routes.push({
   method: 'post',
   path: '/question',
 
@@ -25,7 +25,7 @@ module.exports = {
     }
 
     const User = this.session.user;
-    const Question = mongoose.model('Question');
+    const Question = this.model('Question');
     const newQuestion = new Question({
       text: body.question,
       user: User
@@ -41,4 +41,6 @@ module.exports = {
       this.redirect('/');
     });
   }
-};
+});
+
+module.exports = routes;
