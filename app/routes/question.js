@@ -1,5 +1,6 @@
 'use strict';
 
+const render = require('../lib/render');
 const routes = [];
 
 routes.push({
@@ -25,8 +26,8 @@ routes.push({
     }
 
     const User = this.session.user;
-    const Question = this.model('Question');
-    const newQuestion = new Question({
+    const Questions = this.model('Question');
+    const newQuestion = new Questions({
       text: body.question,
       user: User
     });
@@ -40,6 +41,34 @@ routes.push({
 
       this.redirect('/');
     });
+  }
+});
+
+routes.push({
+  method: 'get',
+  path: '/question/:id',
+
+  // Handler
+  // Note: please use es6 object-shorthand
+  *handler() {
+    const Questions = this.model('Question');
+    const theQuestion = yield Questions.findOne({
+      _id: this.params.id,
+      deleted: false
+    }).exec();
+
+    const data = {
+      title: 'Questions - Buanga This Guy!',
+      user: this.session.user,
+      question: theQuestion,
+      flash: {
+	error: this.flash('error'),
+	notice: this.flash('notice')
+      },
+      csrf: this.csrf
+    };
+
+    this.body = yield render('question', data);
   }
 });
 
