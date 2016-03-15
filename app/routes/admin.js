@@ -31,9 +31,8 @@ routes.push({
   filters: ['userSession', 'adminOnly'],
 
   *handler() {
-    const Question = this.model('Question');
-
-    const qList = yield Question.find({
+    const Questions = this.model('Question');
+    const qList = yield Questions.find({
       deleted: false
     }).sort({
       createdAt: -1
