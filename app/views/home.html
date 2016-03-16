@@ -33,11 +33,24 @@
     </p>
   </div>
   {% endif %}
-	{% if questions.length !== 0 %}
+  {% if questions.length %}
     {% for question in questions %}
       {% if loop.first %}<ul>{% endif %}
-	<a href="/question/{{question._id | safe}}"><li>{{question.text}}</li></a>
+        <li class="conversation-wrapper">
+          <div class="bubbled-left question-color">
+              {{question.text}}
+          </div>
+          {% if questions.answer.length %}
+            <div class="bubbled-right answer-color">
+              {{question.text}}
+            </div>
+          {% else %}
+            <div class="bubbled-right waiting-color">
+              waiting for reply...
+            </div>
+          {% endif %}
+      </li>
       {% if loop.last %}</ul>{% endif %}
     {% endfor %}
-	{% endif %}
+  {% endif %}
 {% endblock %}
