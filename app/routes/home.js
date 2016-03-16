@@ -8,9 +8,17 @@ routes.push({
   method: 'get',
   path: '/',
   *handler() {
+    const Questions = this.model('Question');
+    const qList = yield Questions.find({
+      deleted: false
+    }).sort({
+      createdAt: -1
+    }).limit(10).exec();
+
     const data = {
       title: 'Buanga This Guy!',
       user: this.session.user,
+      questions: qList,
       flash: {
         error: this.flash('error'),
         notice: this.flash('notice')

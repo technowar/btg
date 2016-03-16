@@ -33,4 +33,11 @@
     </p>
   </div>
   {% endif %}
+	{% if questions.length !== 0 %}
+    {% for question in questions %}
+      {% if loop.first %}<ul>{% endif %}
+	<a href="/question/{{question._id | safe}}"><li>{{question.text}}</li></a>
+      {% if loop.last %}</ul>{% endif %}
+    {% endfor %}
+	{% endif %}
 {% endblock %}
