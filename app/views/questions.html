@@ -12,13 +12,13 @@
   {% endif %}
   <h3>Mga pangutana nga nag tanga'g ug dakong tubag.</h3>
   <hr>
-	{% if questions.length !== 0 %}
+  {% if questions.length !== 0 %}
     {% for question in questions %}
       {% if loop.first %}<ul>{% endif %}
         <a href="/question/{{question._id | safe}}"><li>{{question.text}}</li></a>
       {% if loop.last %}</ul>{% endif %}
     {% endfor %}
-	{% else %}
+  {% else %}
     <h4>Nothing to display</h4>
-	{% endif %}
+  {% endif %}
 {% endblock %}

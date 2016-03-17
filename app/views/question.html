@@ -13,11 +13,12 @@
   <h3>{{question.text}}</h3>
   <hr>
   {% if !question.answer.length %}
-    <form action="#" method="POST">
+    <form action="/admin/answer" method="POST">
       <input type="hidden" name="_csrf" value="{{csrf}}">
+      <input type="hidden" name="_id" value="{{question.id}}">
       <textarea class="u-full-width" name="answer" placeholder="Imong tubag" required></textarea>
       <input class="button button-btg" type="submit" value="Tubag">
-	  </form>
+    </form>
   {% else %}
     {{question.answer}}
   {% endif %}
