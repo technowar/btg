@@ -40,9 +40,9 @@
           <div class="bubbled-left question-color">
               {{question.text}}
           </div>
-          {% if questions.answer.length %}
+	  {% if question.answer.length %}
             <div class="bubbled-right answer-color">
-              {{question.text}}
+	      {{question.answer}}
             </div>
           {% else %}
             <div class="bubbled-right waiting-color">

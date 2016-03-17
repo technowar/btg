@@ -33,7 +33,10 @@ routes.push({
   *handler() {
     const Questions = this.model('Question');
     const qList = yield Questions.find({
-      deleted: false
+      deleted: false,
+      answer: {
+        $eq: ''
+      }
     }).sort({
       createdAt: -1
     }).limit(10).exec();
@@ -50,6 +53,46 @@ routes.push({
     };
 
     this.body = yield render('questions', data);
+  }
+});
+
+// Admin/answer
+routes.push({
+  method: 'post',
+  path: '/admin/answer',
+  filters: ['userSession', 'adminOnly'],
+
+  *handler() {
+    const body = yield this.request.urlencoded();
+
+    // Mag protection, mag trust
+    // quality CSRF condom este token
+    try {
+      this.assertCSRF(body);
+    } catch (err) {
+      this.status = 403;
+      this.body = {
+        message: 'This CSRF token is invalid!'
+      };
+
+      return;
+    }
+
+    const _id = body._id;
+    const Questions = this.model('Question');
+
+    const answerQuestion = yield Questions.findById(_id).exec();
+
+    answerQuestion.answer = body.answer;
+    answerQuestion.save((error) => {
+      if (error) {
+        this.body = error;
+
+        return;
+      }
+
+      this.redirect('/admin/questions');
+    });
   }
 });
 

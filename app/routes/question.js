@@ -25,11 +25,9 @@ routes.push({
       return;
     }
 
-    const User = this.session.user;
     const Questions = this.model('Question');
     const newQuestion = new Questions({
-      text: body.question,
-      user: User
+      text: body.question
     });
 
     newQuestion.save((error) => {
@@ -62,8 +60,8 @@ routes.push({
       user: this.session.user,
       question: theQuestion,
       flash: {
-	error: this.flash('error'),
-	notice: this.flash('notice')
+        error: this.flash('error'),
+        notice: this.flash('notice')
       },
       csrf: this.csrf
     };
