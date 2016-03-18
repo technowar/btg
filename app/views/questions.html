@@ -10,12 +10,20 @@
     <p>{{flash.error}}</p>
   </div>
   {% endif %}
-  <h3>Mga pangutana nga nag tanga'g ug dakong tubag.</h3>
+  <h3>Mga pangutana nga nag tangag ug dakong ganti.</h3>
   <hr>
   {% if questions.length !== 0 %}
     {% for question in questions %}
       {% if loop.first %}<ul>{% endif %}
-        <a href="/question/{{question._id | safe}}"><li>{{question.text}}</li></a>
+        <li>{{question.text}}</li>
+        <li>
+          <form action="/admin/answer" method="POST">
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+            <input type="hidden" name="_id" value="{{question.id}}">
+            <textarea class="u-full-width" name="answer" placeholder="Imong tubag" required></textarea>
+            <input class="button button-btg" type="submit" value="Tubag">
+          </form>
+				</li>
       {% if loop.last %}</ul>{% endif %}
     {% endfor %}
   {% else %}
