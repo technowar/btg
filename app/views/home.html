@@ -37,17 +37,31 @@
     {% for question in questions %}
       {% if loop.first %}<ul>{% endif %}
         <li class="conversation-wrapper">
-          <div class="bubbled-left question-color">
-              {{question.text}}
+          <div class="question">
+            <span class="content-profile">
+              <a href="/profile" class="profile-wrapper">
+                <img src="images/anonymous.png" />
+              </a>
+            </span>
+            <span class="content-text">{{question.text}}</span>
+            <span class="content-status">
+              <i class="icon-heart">31337</i>
+              <i class="icon-share">100</i>
+            </span>
+          </div>
+          <div class="answer">
+            <span class="content-status">
+              <i class="icon-heart">31337</i>
+              <i class="icon-share">100</i>
+            </span>
+            <span class="content-text">{{question.answer}}</span>
+            <span class="content-profile">
+              <a href="/profile" class="profile-wrapper">
+                <img src="images/anonymous.png" />
+              </a>
+            </span>
           </div>
           {% if question.answer.length %}
-            <div class="bubbled-right answer-color">
-              {{question.answer}}
-            </div>
-          {% else %}
-            <div class="bubbled-right waiting-color">
-              waiting for reply...
-            </div>
           {% endif %}
       </li>
       {% if loop.last %}</ul>{% endif %}
