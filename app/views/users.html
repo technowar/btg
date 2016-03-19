@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+  {% parent %}
+{% endblock %}
+
+{% block content %}
+  {% if flash.error %}
+  <div class="center">
+    <p>{{flash.error}}</p>
+  </div>
+  {% endif %}
+  <h3>Mga pangutana nga nag tanga'g ug dakong tubag.</h3>
+  <hr>
+  {% if users.length !== 0 %}
+    {% for user in users %}
+      {% if loop.first %}<ul>{% endif %}
+        <li>{{user.name}}</li>
+      {% if loop.last %}</ul>{% endif %}
+    {% endfor %}
+  {% else %}
+    <h4>Nothing to display</h4>
+  {% endif %}
+{% endblock %}
