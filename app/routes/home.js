@@ -10,10 +10,7 @@ routes.push({
   *handler() {
     const Questions = this.model('Question');
     const qList = yield Questions.find({
-      deleted: false,
-      answer: {
-        $ne: ''
-      }
+      deleted: false
     }).sort({
       updatedAt: -1
     }).limit(10).exec();
