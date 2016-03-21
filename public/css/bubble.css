@@ -9,6 +9,53 @@ ul {
 .conversation-wrapper:first-child {
   border-top:1px solid #d1d1d1;
 }
+.question, .answer {
+  margin: 10px;
+}
+
+.question, .answer, .content-status, .content-profile {
+  display: inline-block;
+}
+
+.content-text, .content-profile, .content-status, .profile-wrapper {
+  vertical-align: middle;
+}
+
+.content-status, .content-profile {
+  width: 100px;
+  text-align: center;
+}
+
+.profile-wrapper, .profile-wrapper > img {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 120px;
+}
+.profile-wrapper {
+  border: 1px solid #d1d1d1;
+  display: inherit;
+}
+
+.content-text {
+  display: inherit;
+  border: 1px solid #d1d1d1;
+  border-radius: 20px;
+  padding: 10px 20px;
+  min-height: 65px;
+  max-height: 150px;
+  margin: 0 20px;
+  min-width: 600px;
+  background-color: #efefef;
+}
+.content-status i {
+  display: block;
+  text-align: left;
+  margin: 5px 0;
+}
+.content-status i:before {
+  margin-right: 10px;
+}
 
 .bubbled-left, .bubbled-right {
   padding: 5px 9px;
@@ -68,7 +115,7 @@ ul {
   background-color: #f7777f;
   color: #d9f1f1;
 }
-.answer:before {
+.answer-color:before {
   border-bottom: 9px solid #f7777f;
 }
 .waiting-color {
