@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+  {% parent %}
+{% endblock %}
+
+{% block content %}
+  {% if flash.error %}
+  <div class="center">
+    <p>{{flash.error}}</p>
+  </div>
+  {% endif %}
+  <h3>Suggestion</h3>
+  <hr>
+  <form action="#" method="POST">
+    <input class="u-full-width" type="email" name="email" placeholder="Email Address">
+    <textarea class="u-full-width" name="content" placeholder="Imong hinanakit"></textarea>
+    <input class="button button-btg" type="submit" value="Ipabuhagay">
+  </form>
+{% endblock %}

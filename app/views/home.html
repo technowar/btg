@@ -39,9 +39,10 @@
         <li class="conversation-wrapper">
           <div class="question">
             <span class="content-profile">
-              <a href="/profile" class="profile-wrapper">
+              <div class="profile-wrapper">
                 <img src="images/anonymous.png" />
-              </a>
+								<span>Anonymous</span>
+              </div>
             </span>
             <span class="content-text">{{question.text}}</span>
             <span class="content-status">
@@ -56,9 +57,10 @@
             </span>
             <span class="content-text">{{question.answer}}</span>
             <span class="content-profile">
-              <a href="/profile" class="profile-wrapper">
+              <div class="profile-wrapper">
                 <img src="images/anonymous.png" />
-              </a>
+								<span>BTG</span>
+              </div>
             </span>
           </div>
           {% if question.answer.length %}
