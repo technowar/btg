@@ -15,7 +15,7 @@ routes.push({
         $ne: ''
       }
     }).sort({
-      createdAt: -1
+      updatedAt: -1
     }).limit(10).exec();
 
     const data = {
@@ -49,6 +49,63 @@ routes.push({
     };
 
     this.body = yield render('profile', data);
+  }
+});
+
+// Suggestion Page
+routes.push({
+  method: 'get',
+  path: '/suggestion',
+  *handler() {
+    const data = {
+      title: 'Suggestion - Buanga This Guy!',
+      user: this.session.user,
+      flash: {
+        error: this.flash('error'),
+        notice: this.flash('notice')
+      },
+      csrf: this.csrf
+    };
+
+    this.body = yield render('suggestion', data);
+  }
+});
+
+// About Page
+routes.push({
+  method: 'get',
+  path: '/about',
+  *handler() {
+    const data = {
+      title: 'About - Buanga This Guy!',
+      user: this.session.user,
+      flash: {
+        error: this.flash('error'),
+        notice: this.flash('notice')
+      },
+      csrf: this.csrf
+    };
+
+    this.body = yield render('about', data);
+  }
+});
+
+// FAQ Page
+routes.push({
+  method: 'get',
+  path: '/faq',
+  *handler() {
+    const data = {
+      title: 'FAQ - Buanga This Guy!',
+      user: this.session.user,
+      flash: {
+        error: this.flash('error'),
+        notice: this.flash('notice')
+      },
+      csrf: this.csrf
+    };
+
+    this.body = yield render('faq', data);
   }
 });
 

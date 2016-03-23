@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block title %}{{ title }}{% endblock %}
+{% block head %}
+  {% parent %}
+{% endblock %}
+
+{% block content %}
+  {% if flash.error %}
+  <div class="center">
+    <p>{{flash.error}}</p>
+  </div>
+  {% endif %}
+  <h3>Frequently Asked Questions</h3>
+  <hr>
+  <ol>
+    <li>
+      <div>
+        <span>Bati kag nawng?</span>
+        <p>Ikaw ra.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <span>Putot ka?</span>
+        <p>Ikaw ra.</p>
+      </div>
+    </li>
+    <li>
+      <div>
+        <span>Tambok ka?</span>
+        <p>Ikaw ra.</p>
+      </div>
+    </li>
+  </ol>
+{% endblock %}

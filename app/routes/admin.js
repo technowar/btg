@@ -84,6 +84,7 @@ routes.push({
     const answerQuestion = yield Questions.findById(_id).exec();
 
     answerQuestion.answer = body.answer;
+    answerQuestion.updatedAt = new Date().toISOString();
     answerQuestion.save((error) => {
       if (error) {
         this.body = error;
