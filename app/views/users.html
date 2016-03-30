@@ -15,25 +15,25 @@
   {% if users.length %}
     {% for user in users %}
       {% if loop.first %}<ul>{% endif %}
-  <li>
-    <span class="content-profile">
-      <a href="/profile" class="profile-wrapper">
-        {% if user.picture.length %}
-          <img src="{{user.picture}}"/>
-        {% else %}
-          <img src="/images/anonymous.png" />
+      <li>
+        <div class="content-profile">
+          <span href="/profile" class="profile-wrapper">
+          {% if user.picture.length %}
+            <img src="{{user.picture}}"/>
+          {% else %}
+            <img src="/images/anonymous.png" />
+          {% endif %}
+          </span>
+        </div>
+        {{user.name}}
+        {% if user.role !== 'admin' %}
+          <div class="content-status">
+            <form action="/promote/{{user._id}}" method="get">
+              <button class="button button-btg">PROMOTE TO ADMIN</button>
+            </form>
+          </div>
         {% endif %}
-      </a>
-    </span>
-    {{user.name}}
-    {% if user.role !== 'admin' %}
-      <span class="content-status">
-        <form>
-          <button class="button button-btg">PROMOTE TO ADMIN</button>
-        </form>
-      </span>
-    {% endif %}
-  </li>
+      </li>
       {% if loop.last %}</ul>{% endif %}
     {% endfor %}
   {% else %}

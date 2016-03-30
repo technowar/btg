@@ -109,7 +109,6 @@ routes.push({
 
     const _id = body._id;
     const Questions = this.model('Question');
-
     const answerQuestion = yield Questions.findById(_id).exec();
 
     answerQuestion.answer = body.answer;

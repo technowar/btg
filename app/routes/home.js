@@ -10,6 +10,9 @@ routes.push({
   *handler() {
     const Questions = this.model('Question');
     const qList = yield Questions.find({
+      answer: {
+        $ne: ''
+      },
       deleted: false
     }).sort({
       updatedAt: -1
