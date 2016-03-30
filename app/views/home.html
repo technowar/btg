@@ -34,33 +34,35 @@
   {% if questions.length %}
     {% for question in questions %}
       {% if loop.first %}<ul>{% endif %}
-        <li class="conversation-wrapper">
-          <div class="question">
-            <span class="content-profile">
-              <div class="profile-wrapper">
-                <img src="images/anonymous.png" />
-              </div>
-            </span>
-            <span class="content-text">{{question.text}}</span>
-            <span class="content-status">
-              <i class="icon-heart">31337</i>
-              <i class="icon-share">100</i>
-            </span>
-          </div>
-          <div class="answer">
-            <span class="content-status">
-              <i class="icon-heart">31337</i>
-              <i class="icon-share">100</i>
-            </span>
-            <span class="content-text">{{question.answer}}</span>
-            <span class="content-profile">
-              <div class="profile-wrapper">
-                <img src="images/anonymous.png" />
-              </div>
-            </span>
-          </div>
-          {% if question.answer.length %}
-          {% endif %}
+      <li class="conversation-wrapper">
+        <div>
+          {{question.updatedAt|date('l\, F j\, Y')}}
+        </div>
+        <div>
+          {{question.updatedAt|date('g\:i A')}}
+        </div>
+        <div class="question">
+          <span class="content-profile">
+            <div class="profile-wrapper">
+              <img src="images/anonymous.png" />
+            </div>
+          </span>
+          <span class="content-text">{{question.text}}</span>
+          <span class="content-status">
+            <i class="icon-heart">{{question.likes.length}}</i>
+          </span>
+        </div>
+        <div class="answer">
+          <span class="content-status">
+            <i class="icon-heart">{{question.likes.length}}</i>
+          </span>
+          <span class="content-text">{{question.answer}}</span>
+          <span class="content-profile">
+            <div class="profile-wrapper">
+              <img src="images/anonymous.png" />
+            </div>
+          </span>
+        </div>
       </li>
       {% if loop.last %}</ul>{% endif %}
     {% endfor %}
