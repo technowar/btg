@@ -24,6 +24,35 @@ routes.push({
   }
 });
 
+// Admin/users
+routes.push({
+  method: 'get',
+  path: '/admin/users',
+  filters: ['userSession', 'adminOnly'],
+
+  *handler() {
+    const Users = this.model('User');
+    const uList = yield Users.find({
+      deleted: false,
+    }).sort({
+      createdAt: -1
+    }).limit(10).exec();
+
+    const data = {
+      title: 'Admin | Users - Buanga This Guy!',
+      user: this.session.user,
+      users: uList,
+      flash: {
+        error: this.flash('error'),
+        notice: this.flash('notice')
+      },
+      csrf: this.csrf
+    };
+
+    this.body = yield render('users', data);
+  }
+});
+
 // Admin/questions
 routes.push({
   method: 'get',
@@ -80,7 +109,6 @@ routes.push({
 
     const _id = body._id;
     const Questions = this.model('Question');
-
     const answerQuestion = yield Questions.findById(_id).exec();
 
     answerQuestion.answer = body.answer;

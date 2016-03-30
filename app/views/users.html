@@ -10,12 +10,30 @@
     <p>{{flash.error}}</p>
   </div>
   {% endif %}
-  <h3>Mga pangutana nga nag tanga'g ug dakong tubag.</h3>
+  <h3>Mga tao nga dagha'g ika pangutana ug ika tubag.</h3>
   <hr>
-  {% if users.length !== 0 %}
+  {% if users.length %}
     {% for user in users %}
       {% if loop.first %}<ul>{% endif %}
-        <li>{{user.name}}</li>
+      <li>
+        <div class="content-profile">
+          <span href="/profile" class="profile-wrapper">
+          {% if user.picture.length %}
+            <img src="{{user.picture}}"/>
+          {% else %}
+            <img src="/images/anonymous.png" />
+          {% endif %}
+          </span>
+        </div>
+        {{user.name}}
+        {% if user.role !== 'admin' %}
+          <div class="content-status">
+            <form action="/promote/{{user._id}}" method="get">
+              <button class="button button-btg">PROMOTE TO ADMIN</button>
+            </form>
+          </div>
+        {% endif %}
+      </li>
       {% if loop.last %}</ul>{% endif %}
     {% endfor %}
   {% else %}

@@ -1,4 +1,4 @@
-{% extends 'layout.html' %}
+{% extends 'admin_layout.html' %}
 {% block title %}{{ title }}{% endblock %}
 {% block head %}
   {% parent %}
@@ -15,7 +15,7 @@
     <hr>
   </div>
   <ul>
-    <li>Users</li>
+    <li><a href="/admin/users">Users</a></li>
     <li><a href="/admin/questions">Questions</a></li>
   </ul>
 {% endblock %}
