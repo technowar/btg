@@ -2,14 +2,15 @@
 
 ![build_status](https://api.travis-ci.org/wadiwasi/btg.svg?branch=master)
 
-## Setup on Mac
+## Setup
+
+### Option 1, using Docker
 
 **Requirements**
 
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-- [Brew](http://brew.sh/)
 
-### Setup Dev Environment
+#### Setup Dev Environment
 
 To get started, install 'em all
 
@@ -32,7 +33,7 @@ there's no error, then you're good to go.
 
 &nbsp;
 
-## Provisioning (docker-compose)
+#### Provisioning (docker-compose)
 
 Once your docker env is all set up, then you're pretty much ready to get your hands all dirty. So let's get crackin`!
 
@@ -55,6 +56,24 @@ Once your docker env is all set up, then you're pretty much ready to get your ha
     > This will copy some commit-hook scripts to `.git/hooks` folder.
 
     &nbsp;
+
+### Option 2, using node
+
+**Requirements**
+
+- [Node.js 5.x or greater](https://nodejs.org/en/)
+- [redis-server](http://redis.io/)
+- [MongoDB](https://www.mongodb.org/)
+
+#### Setup Dev Environment
+
+1. Install dependencies
+
+    `$ npm install`
+
+2. Run server
+
+    `$ node server.js`
 
 ## Development
 
