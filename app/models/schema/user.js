@@ -37,5 +37,24 @@ module.exports = () => {
     }
   }));
 
+  userSchema.statics.likedQuestions = (data, user) => {
+    const User = mongoose.model('User');
+
+    User.findOneAndUpdate({
+      _id: user._id,
+      deleted: false
+    }, {
+      $push: {
+        likedQuestions: data._id
+      }
+    }, {
+      new: true
+    }, (error) => {
+      if (error) {
+        throw error;
+      }
+    });
+  };
+
   return userSchema;
 };

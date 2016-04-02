@@ -67,6 +67,7 @@ routes.push({
   *handler() {
     // Purge user session, then redirect
     delete this.session.user;
+
     this.redirect('/');
   }
 });
