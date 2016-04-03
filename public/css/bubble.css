@@ -87,6 +87,7 @@ ul {
 }
 .content-status i:before {
   margin-right: 10px;
+	cursor: pointer;
 }
 
 .bubbled-left, .bubbled-right {

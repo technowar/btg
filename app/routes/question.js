@@ -39,8 +39,52 @@ routes.push({
         return;
       }
 
-      Users.likedQuestions(data, user);
-      Questions.likes(data, user);
+      Users.likedQuestions(data._id, user._id, (err) => {
+        if (err) {
+          this.body = err;
+
+          return;
+        }
+      });
+
+      Questions.likes(data._id, user._id, (err) => {
+        if (err) {
+          this.body = err;
+
+          return;
+        }
+
+        this.redirect('/');
+      });
+    });
+  }
+});
+
+routes.push({
+  method: 'post',
+  path: '/question/:_id/like',
+  filters: ['userSession'],
+
+  *handler() {
+    const Users = this.model('User');
+    const Questions = this.model('Question');
+
+    const user = this.session.user;
+
+    Users.likedQuestions(this.params._id, user._id, (err) => {
+      if (err) {
+        this.body = err;
+
+        return;
+      }
+    });
+
+    Questions.likes(this.params._id, user._id, (err) => {
+      if (err) {
+        this.body = err;
+
+        return;
+      }
 
       this.redirect('/');
     });

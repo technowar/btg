@@ -29,22 +29,43 @@ module.exports = () => {
     }
   }));
 
-  questionSchema.statics.likes = (data, user) => {
+  questionSchema.statics.likes = (questionId, userId, callback) => {
     const Question = mongoose.model('Question');
 
-    Question.findOneAndUpdate({
-      _id: data._id,
+    Question.findOne({
+      _id: questionId,
       deleted: false
-    }, {
-      $push: {
-        likes: user._id
-      }
-    }, {
-      new: true
-    }, (error) => {
+    }, (error, data) => {
       if (error) {
-        throw error;
+        callback(error, null);
       }
+
+      let like = {
+        $push: {
+          likes: userId
+        }
+      };
+
+      if (!data.likes.indexOf(userId)) {
+        like = {
+          $pull: {
+            likes: userId
+          }
+        };
+      }
+
+      Question.findOneAndUpdate({
+        _id: data,
+        deleted: false
+      }, like, {
+        new: true
+      }, (err, doc) => {
+        if (err) {
+          callback(err, null);
+        }
+
+        callback(null, doc);
+      });
     });
   };
 

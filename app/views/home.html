@@ -49,7 +49,7 @@
           </span>
           <span class="content-text">{{question.text}}</span>
           <span class="content-status">
-            <i class="icon-heart">{{question.likes.length}}</i>
+            <i class="icon-heart" question={{question._id.toString()}}>{{question.likes.length}}</i>
           </span>
         </div>
         <div class="answer">
@@ -66,5 +66,6 @@
       </li>
       {% if loop.last %}</ul>{% endif %}
     {% endfor %}
+  <script type="text/javascript" src="/scripts/main.js"></script>
   {% endif %}
 {% endblock %}

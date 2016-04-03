@@ -37,22 +37,43 @@ module.exports = () => {
     }
   }));
 
-  userSchema.statics.likedQuestions = (data, user) => {
+  userSchema.statics.likedQuestions = (questionId, userId, callback) => {
     const User = mongoose.model('User');
 
-    User.findOneAndUpdate({
-      _id: user._id,
+    User.findOne({
+      _id: userId,
       deleted: false
-    }, {
-      $push: {
-        likedQuestions: data._id
-      }
-    }, {
-      new: true
-    }, (error) => {
+    }, (error, data) => {
       if (error) {
-        throw error;
+        callback(error, null);
       }
+
+      let like = {
+        $push: {
+          likedQuestions: questionId
+        }
+      };
+
+      if (!data.likedQuestions.indexOf(questionId)) {
+        like = {
+          $pull: {
+            likedQuestions: questionId
+          }
+        };
+      }
+
+      User.findOneAndUpdate({
+        _id: userId,
+        deleted: false
+      }, like, {
+        new: true
+      }, (err, doc) => {
+        if (err) {
+          callback(err, null);
+        }
+
+        callback(null, doc);
+      });
     });
   };
 
