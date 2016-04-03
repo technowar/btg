@@ -29,5 +29,24 @@ module.exports = () => {
     }
   }));
 
+  questionSchema.statics.likes = (data, user) => {
+    const Question = mongoose.model('Question');
+
+    Question.findOneAndUpdate({
+      _id: data._id,
+      deleted: false
+    }, {
+      $push: {
+        likes: user._id
+      }
+    }, {
+      new: true
+    }, (error) => {
+      if (error) {
+        throw error;
+      }
+    });
+  };
+
   return questionSchema;
 };

@@ -24,17 +24,23 @@ routes.push({
       return;
     }
 
+    const Users = this.model('User');
     const Questions = this.model('Question');
+
+    const user = this.session.user;
     const newQuestion = new Questions({
       text: body.question
     });
 
-    newQuestion.save((error) => {
+    newQuestion.save((error, data) => {
       if (error) {
         this.body = error;
 
         return;
       }
+
+      Users.likedQuestions(data, user);
+      Questions.likes(data, user);
 
       this.redirect('/');
     });
